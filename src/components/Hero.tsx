@@ -172,7 +172,7 @@ export function Hero() {
             {/* Social Icons */}
             <div className="flex items-center gap-4">
               <motion.a
-                href="mailto:thanoj@example.com"
+                href="mailto:thanojbuddhima2003@gmail.com"
                 className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
                 whileHover={{ scale: 1.2, y: -3 }}
                 whileTap={{ scale: 0.95 }}
@@ -180,7 +180,7 @@ export function Hero() {
                 <Mail size={20} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/thanoj"
+                href="https://www.linkedin.com/in/thanojbuddhima"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
@@ -190,7 +190,7 @@ export function Hero() {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="https://github.com/thanoj"
+                href="https://github.com/ThanojBuddhima"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
@@ -200,7 +200,7 @@ export function Hero() {
                 <Github size={20} />
               </motion.a>
               <motion.a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1D5cha3Avy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
@@ -210,7 +210,7 @@ export function Hero() {
                 <Facebook size={20} />
               </motion.a>
               <motion.a
-                href="https://instagram.com"
+                href="https://www.instagram.com/thanoj_b_20/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"

@@ -52,7 +52,7 @@ export function About() {
           <motion.button
             onClick={() => {
               const link = document.createElement('a');
-              link.href = '/path-to-cv.pdf';
+              link.href = '/Thanoj_Buddhima_CV.pdf';
               link.download = 'Thanoj_Buddhima_CV.pdf';
               link.click();
             }}
