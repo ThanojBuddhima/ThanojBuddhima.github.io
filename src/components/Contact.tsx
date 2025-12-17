@@ -6,7 +6,8 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for reaching out! I will get back to you soon.');
+    // Open email client with pre-filled recipient
+    window.location.href = `mailto:thanojbuddhima2003@gmail.com?subject=Contact from Portfolio&body=Hi Thanoj,%0D%0A%0D%0AMy email is: ${email}%0D%0A%0D%0A`;
     setEmail('');
   };
 

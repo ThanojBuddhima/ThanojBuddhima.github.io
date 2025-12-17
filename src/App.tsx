@@ -47,7 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
+    <div className="w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden">
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <Hero />
       <About />
