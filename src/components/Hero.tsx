@@ -72,9 +72,9 @@ export function Hero() {
           }}
         >
           <span
-            className="text-[8rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[12rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
-              WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)',
+              WebkitTextStroke: '2px rgba(255, 107, 53, 0.35)',
               color: 'transparent',
               lineHeight: 1.15,
               fontFamily: 'Poppins, sans-serif',
@@ -86,9 +86,9 @@ export function Hero() {
             THANOJ BUDDHIMA
           </span>
           <span
-            className="text-[8rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[12rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
-              WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)',
+              WebkitTextStroke: '2px rgba(255, 107, 53, 0.35)',
               color: 'transparent',
               lineHeight: 1.15,
               fontFamily: 'Poppins, sans-serif',
