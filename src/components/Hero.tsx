@@ -59,8 +59,8 @@ export function Hero() {
 
   return (
     <section id="hero" className="min-h-screen pt-24 pb-12 md:pb-0 flex items-center bg-background relative overflow-hidden w-full">
-      {/* Large Background Text - Hidden on mobile */}
-      <div className="hidden sm:flex absolute inset-0 items-end md:items-center justify-center pointer-events-none select-none overflow-hidden pb-32 md:pb-0">
+      {/* Large Background Text - Visible on all screens */}
+      <div className="absolute inset-0 flex items-end md:items-center justify-center pointer-events-none select-none overflow-hidden pb-32 md:pb-0">
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ['0%', '-50%'] }}
@@ -72,7 +72,7 @@ export function Hero() {
           }}
         >
           <span
-            className="text-[10rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[6rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
               WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)',
               color: 'transparent',
@@ -86,7 +86,7 @@ export function Hero() {
             THANOJ BUDDHIMA
           </span>
           <span
-            className="text-[10rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[6rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
               WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)',
               color: 'transparent',
