@@ -149,7 +149,7 @@ export function Achievements() {
           </motion.button>
 
           {/* Cards Stack with Shuffle Effect */}
-          <div className="relative w-full max-w-2xl mx-auto h-[460px] md:h-[500px]">
+          <div className="relative w-full max-w-2xl mx-auto h-[380px] sm:h-[460px] md:h-[500px]">
             <AnimatePresence initial={false} mode="popLayout">
               {achievements.map((achievement, index) => {
                 const style = getCardStyle(index);
@@ -198,7 +198,7 @@ export function Achievements() {
                       transition={{ duration: 0.3 }}
                     >
                       <div 
-                        className="rounded-3xl overflow-hidden shadow-2xl border-2 border-[#FF6B35] bg-card h-[380px] md:h-[430px] flex flex-col w-[360px] md:w-[480px]"
+                        className="rounded-3xl overflow-hidden shadow-2xl border-2 border-[#FF6B35] bg-card h-[300px] sm:h-[380px] md:h-[430px] flex flex-col w-[280px] sm:w-[360px] md:w-[480px]"
                         style={{
                           boxShadow: isActive 
                             ? '0 25px 50px -12px rgba(255, 107, 53, 0.25), 0 0 0 1px rgba(255, 107, 53, 0.1)'
@@ -206,7 +206,7 @@ export function Achievements() {
                         }}
                       >
                         {/* Image Section */}
-                        <div className="relative h-[240px] md:h-[280px] overflow-hidden flex-shrink-0">
+                        <div className="relative h-[180px] sm:h-[240px] md:h-[280px] overflow-hidden flex-shrink-0">
                           <ImageWithFallback
                             src={achievement.image}
                             alt={achievement.title}

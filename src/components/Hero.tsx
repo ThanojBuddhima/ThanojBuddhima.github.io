@@ -72,7 +72,7 @@ export function Hero() {
           }}
         >
           <span
-            className="text-[6rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[8rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
               WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)',
               color: 'transparent',
@@ -86,7 +86,7 @@ export function Hero() {
             THANOJ BUDDHIMA
           </span>
           <span
-            className="text-[6rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[8rem] sm:text-[13rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
               WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)',
               color: 'transparent',

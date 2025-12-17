@@ -48,13 +48,13 @@ export function Projects() {
                 transition={{ duration: 0.3 }}
               >
                 <div 
-                  className="rounded-3xl overflow-hidden shadow-2xl border-2 border-[#FF6B35] bg-card h-[380px] md:h-[430px] flex flex-col w-[320px] sm:w-[360px] md:w-[480px] cursor-pointer max-w-[calc(100vw-2rem)]"
+                  className="rounded-3xl overflow-hidden shadow-2xl border-2 border-[#FF6B35] bg-card h-[320px] sm:h-[380px] md:h-[430px] flex flex-col w-[280px] sm:w-[360px] md:w-[480px] cursor-pointer max-w-[calc(100vw-2rem)]"
                   style={{
                     boxShadow: '0 25px 50px -12px rgba(255, 107, 53, 0.25), 0 0 0 1px rgba(255, 107, 53, 0.1)',
                   }}
                 >
                   {/* Image Section */}
-                  <div className="relative h-[240px] md:h-[280px] overflow-hidden flex-shrink-0">
+                  <div className="relative h-[200px] sm:h-[240px] md:h-[280px] overflow-hidden flex-shrink-0">
                     <ImageWithFallback
                       src={project.image}
                       alt={project.title}
