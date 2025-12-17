@@ -110,8 +110,8 @@ export function Achievements() {
   };
 
   return (
-    <section id="achievements" className="min-h-screen py-12 md:py-0 bg-background flex items-center">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+    <section id="achievements" className="min-h-screen py-12 md:py-0 bg-background flex items-center overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Section Header */}
         <motion.div
           className="mb-6"

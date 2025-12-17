@@ -20,8 +20,8 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="min-h-screen py-12 md:py-32 bg-background flex items-center">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="min-h-screen py-12 md:py-32 bg-background flex items-center overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Section Header */}
         <motion.div
           className="mb-12"
@@ -48,7 +48,7 @@ export function Projects() {
                 transition={{ duration: 0.3 }}
               >
                 <div 
-                  className="rounded-3xl overflow-hidden shadow-2xl border-2 border-[#FF6B35] bg-card h-[380px] md:h-[430px] flex flex-col w-[360px] md:w-[480px] cursor-pointer"
+                  className="rounded-3xl overflow-hidden shadow-2xl border-2 border-[#FF6B35] bg-card h-[380px] md:h-[430px] flex flex-col w-[320px] sm:w-[360px] md:w-[480px] cursor-pointer max-w-[calc(100vw-2rem)]"
                   style={{
                     boxShadow: '0 25px 50px -12px rgba(255, 107, 53, 0.25), 0 0 0 1px rgba(255, 107, 53, 0.1)',
                   }}
