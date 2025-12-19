@@ -3,7 +3,8 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.png';
-import profileImageDark from '../assets/profile-dark.jpg';
+
+const profileImageDark = '/profile-dark.png';
 
 interface HeroProps {
   isDarkMode: boolean;
