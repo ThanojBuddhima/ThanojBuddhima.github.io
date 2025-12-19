@@ -2,9 +2,14 @@ import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import profileImage from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.png';
+import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.png';
+import profileImageDark from '../assets/profile-dark.jpg';
 
-export function Hero() {
+interface HeroProps {
+  isDarkMode: boolean;
+}
+
+export function Hero({ isDarkMode }: HeroProps) {
   const roles = ['UI & UX Designer', 'Web Developer'];
   const [currentRole, setCurrentRole] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -161,7 +166,7 @@ export function Hero() {
                 }}
               >
                 <ImageWithFallback
-                  src={profileImage}
+                  src={isDarkMode ? profileImageDark : profileImageLight}
                   alt="Thanoj Buddhima"
                   className="w-full h-full object-cover"
                   onLoad={() => setImageLoaded(true)}
