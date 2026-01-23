@@ -117,7 +117,7 @@ export function Hero({ isDarkMode }: HeroProps) {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 box-border">
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px', width: '100%', position: 'relative', zIndex: 10 }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Side - Text Content */}
           <motion.div
@@ -126,15 +126,15 @@ export function Hero({ isDarkMode }: HeroProps) {
             transition={{ duration: 0.6 }}
             className="order-1 lg:order-1"
           >
-            <p className="text-muted-foreground mb-1">Hi I am</p>
-            <h2 className="text-[#FF6B35] text-4xl md:text-5xl mb-4">Thanoj Buddhima</h2>
+            <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', marginBottom: '4px' }}>Hi I am</p>
+            <h2 style={{ color: '#FF6B35', fontSize: '2rem', fontWeight: 'bold', marginBottom: '12px' }}>Thanoj Buddhima</h2>
             <div className="mb-4 md:mb-6 h-[80px] sm:h-[100px] md:h-[130px] lg:h-[160px] flex items-center w-full overflow-hidden">
-              <h1 className="text-foreground text-2xl sm:text-5xl md:text-6xl lg:text-7xl flex items-center break-words max-w-full leading-tight">
+              <h1 className="text-foreground text-2xl sm:text-5xl md:text-6xl lg:text-6xl flex items-center break-words max-w-full leading-tight">
                 <span className="inline-block min-w-0 break-words">{displayedText || '\u00A0'}</span>
                 <span className="inline-block w-[3px] bg-[#FF6B35] ml-2 animate-pulse flex-shrink-0" style={{ height: '0.8em' }}></span>
               </h1>
             </div>
-            <p className="text-muted-foreground text-lg mb-4 md:mb-6 max-w-xl leading-relaxed">
+            <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', marginBottom: '24px', maxWidth: '500px', lineHeight: '1.6' }}>
               A software developer passionate about clean architecture and efficient systems. I build digital products that are as functional as they are beautiful.
             </p>
             <motion.button

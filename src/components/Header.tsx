@@ -57,7 +57,7 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div 

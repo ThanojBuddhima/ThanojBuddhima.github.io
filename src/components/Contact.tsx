@@ -1,57 +1,172 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, Facebook, Instagram } from 'lucide-react';
 
 export function Contact() {
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Open email client with pre-filled recipient
-    window.location.href = `mailto:thanojbuddhima2003@gmail.com?subject=Contact from Portfolio&body=Hi Thanoj,%0D%0A%0D%0AMy email is: ${email}%0D%0A%0D%0A`;
-    setEmail('');
+    const mailtoUrl = `mailto:thanojbuddhima2003@gmail.com?subject=Contact from ${formData.name}&body=From: ${formData.email}%0D%0A%0D%0A${formData.message}`;
+    window.location.href = mailtoUrl;
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
-    <section id="contact" className="min-h-screen bg-background flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-      <div className="max-w-4xl mx-auto w-full">
-        {/* Section Header */}
+    <section id="contact" style={{ padding: '80px 0 40px 0', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'var(--background)' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px', width: '100%' }}>
+        {/* Centered Header - Matches About perfectly */}
         <motion.div
-          className="mb-12"
+          style={{ marginBottom: '40px', textAlign: 'center' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-foreground text-4xl md:text-5xl text-center">Let's Build Something Amazing</h2>
+          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '12px', color: 'var(--foreground)' }}>Get In Touch</h2>
+          <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
+            I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message!
+          </p>
         </motion.div>
 
-        {/* Contact Form */}
-        <motion.form
-          onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <motion.input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter Your Email"
-            required
-            className="flex-1 px-6 py-4 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6B35] text-foreground"
-            whileFocus={{ scale: 1.01 }}
-          />
-          <motion.button
-            type="submit"
-            className="px-8 py-4 bg-[#FF6B35] text-white rounded-lg transition-all font-semibold whitespace-nowrap"
-            whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
-            whileTap={{ scale: 0.95 }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          
+          {/* Left Column: Contact Details */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col justify-center"
           >
-            Contact Me
-          </motion.button>
-        </motion.form>
+            <div className="space-y-6 mb-8">
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Phone</p>
+                  <p className="text-foreground font-medium">+94 772434353</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Email</p>
+                  <p className="text-foreground font-medium lowercase">thanojbuddhima2003@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Location</p>
+                  <p className="text-foreground font-medium">Sri Lanka</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex gap-3">
+                {[
+                  { icon: Github, href: "https://github.com/ThanojBuddhima" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/thanojbuddhima" },
+                  { icon: Mail, href: "mailto:thanojbuddhima2003@gmail.com" },
+                  { icon: Facebook, href: "https://www.facebook.com/share/1D5cha3Avy/" },
+                  { icon: Instagram, href: "https://www.instagram.com/thanoj_b_20/" }
+                ].map((social, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-[#FF6B35] hover:text-white transition-all border border-border"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <social.icon size={18} />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    required
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email"
+                    required
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
+                  />
+                </div>
+
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your Message..."
+                    required
+                    rows={4}
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all resize-none placeholder:text-muted-foreground/60 text-sm"
+                  />
+                </div>
+              </div>
+
+              <motion.button
+                type="submit"
+                className="w-full py-3 bg-[#FF6B35] text-white rounded-md font-medium flex items-center justify-center gap-2 transition-all"
+                whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Send size={16} />
+                Send Message
+              </motion.button>
+            </form>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
