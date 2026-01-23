@@ -95,18 +95,22 @@ function ProjectCard({ item, index, onExpand }: ProjectCardProps) {
     if (!needsExpansion) return;
     const newExpandedState = !isIndividualExpanded;
     setIsIndividualExpanded(newExpandedState);
+    // If we expand an individual card, we should also ensure the whole section is expanded
+    // to prevent the card from being clipped by the parent overflow: hidden
     if (newExpandedState) {
-      onExpand(); // Keep section open if a card is expanded
+      onExpand();
     }
   };
 
   return (
     <motion.div
+      layout
       style={{
         backgroundColor: 'var(--card)',
         border: '1px solid var(--border)',
         borderRadius: '12px',
         overflow: 'hidden',
+        minHeight: '310px', // Prevent squashing on mobile
         height: isIndividualExpanded ? 'auto' : '310px',
         display: 'flex',
         flexDirection: 'column',
@@ -161,7 +165,7 @@ function ProjectCard({ item, index, onExpand }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-[#FF6B35] transition-colors"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
               <Github size={18} />
             </a>
@@ -184,7 +188,7 @@ function ProjectCard({ item, index, onExpand }: ProjectCardProps) {
         </h3>
 
         {/* Description */}
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
           <p
             style={{
               fontSize: '12px',
@@ -269,6 +273,7 @@ export function ProjectsAndAchievements() {
               gridTemplateColumns: windowWidth < 768 ? '1fr' : (windowWidth < 1024 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'),
               gap: '24px',
               overflow: 'hidden',
+              alignItems: 'start', // Prevent squashing/stretching
             }}
             animate={{
               height: isExpanded ? 'auto' : collapsedHeight,
