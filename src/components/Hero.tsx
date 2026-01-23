@@ -78,7 +78,7 @@ export function Hero({ isDarkMode }: HeroProps) {
           }}
         >
           <span
-            className="text-[12rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[15rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
               WebkitTextStroke: '2px rgba(255, 107, 53, 0.35)',
               color: 'transparent',
@@ -92,7 +92,7 @@ export function Hero({ isDarkMode }: HeroProps) {
             THANOJ BUDDHIMA
           </span>
           <span
-            className="text-[12rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[15rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
               WebkitTextStroke: '2px rgba(255, 107, 53, 0.35)',
               color: 'transparent',
@@ -119,8 +119,8 @@ export function Hero({ isDarkMode }: HeroProps) {
           >
             <p className="text-muted-foreground mb-1">Hi I am</p>
             <h2 className="text-[#FF6B35] text-4xl md:text-5xl mb-4">Thanoj Buddhima</h2>
-            <div className="mb-4 md:mb-6 h-[80px] sm:h-[120px] md:h-[160px] lg:h-[200px] flex items-center w-full">
-              <h1 className="text-foreground text-3xl sm:text-5xl md:text-6xl lg:text-7xl flex items-center break-words max-w-full">
+            <div className="mb-4 md:mb-6 h-[100px] sm:h-[120px] md:h-[160px] lg:h-[200px] flex items-center w-full">
+              <h1 className="text-foreground text-2xl sm:text-5xl md:text-6xl lg:text-7xl flex items-center break-words max-w-full">
                 <span className="inline-block min-w-0 break-words">{displayedText}</span>
                 <span className="inline-block w-1 h-6 sm:h-12 md:h-16 lg:h-20 bg-[#FF6B35] ml-1 animate-pulse flex-shrink-0"></span>
               </h1>
