@@ -315,7 +315,7 @@ export function ProjectsAndAchievements() {
               textAlign: 'center',
             }}
           >
-            <button
+            <motion.button
               onClick={() => setIsExpanded(!isExpanded)}
               style={{
                 padding: '10px 24px',
@@ -325,20 +325,13 @@ export function ProjectsAndAchievements() {
                 borderRadius: '8px',
                 fontWeight: '500',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.3)',
+                whiteSpace: 'nowrap'
               }}
-              onMouseOver={(e: React.MouseEvent<HTMLButtonElement>) => {
-                const target = e.currentTarget as HTMLButtonElement;
-                target.style.backgroundColor = '#FF7A50';
-              }}
-              onMouseOut={(e: React.MouseEvent<HTMLButtonElement>) => {
-                const target = e.currentTarget as HTMLButtonElement;
-                target.style.backgroundColor = '#FF6B35';
-              }}
+              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
+              whileTap={{ scale: 0.95 }}
             >
               {isExpanded ? 'See Less ↑' : 'See More ↓'}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

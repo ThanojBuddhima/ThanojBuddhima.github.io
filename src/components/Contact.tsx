@@ -45,8 +45,8 @@ export function Contact() {
           />
           <motion.button
             type="submit"
-            className="px-8 py-4 bg-[#FF6B35] text-white rounded-lg hover:bg-[#FF7A50] transition-all font-semibold shadow-lg shadow-[#FF6B35]/30 whitespace-nowrap"
-            whileHover={{ scale: 1.05 }}
+            className="px-8 py-4 bg-[#FF6B35] text-white rounded-lg transition-all font-semibold whitespace-nowrap"
+            whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
             whileTap={{ scale: 0.95 }}
           >
             Contact Me

@@ -116,11 +116,11 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
                 link.download = 'Thanoj_Buddhima_CV.pdf';
                 link.click();
               }}
-              className="hidden md:block px-6 py-2 bg-[#FF6B35] text-white rounded-md hover:bg-[#FF7A50] transition-colors shadow-lg"
+              className="hidden md:block px-6 py-2 bg-[#FF6B35] text-white rounded-md transition-colors"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
               whileTap={{ scale: 0.95 }}
             >
               Download CV

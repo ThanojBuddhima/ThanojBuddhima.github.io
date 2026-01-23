@@ -139,8 +139,8 @@ export function Hero({ isDarkMode }: HeroProps) {
             </p>
             <motion.button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-[#FF6B35] text-white rounded-md hover:bg-[#FF7A50] transition-all"
-              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3 bg-[#FF6B35] text-white rounded-md transition-all"
+              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
               whileTap={{ scale: 0.95 }}
             >
               Hire Me
