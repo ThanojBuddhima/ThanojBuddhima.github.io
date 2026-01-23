@@ -80,8 +80,8 @@ export function Contact() {
               </div>
             </div>
 
-            <div>
-              <div className="flex gap-3">
+            <div className="mt-4 mb-8 lg:my-0">
+              <div className="flex flex-wrap gap-3">
                 {[
                   { icon: Github, href: "https://github.com/ThanojBuddhima" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/thanojbuddhima" },
@@ -103,6 +103,9 @@ export function Contact() {
                 ))}
               </div>
             </div>
+            
+            {/* Mobile Spacer */}
+            <div className="h-[80px] lg:hidden"></div>
           </motion.div>
 
           {/* Right Column: Contact Form */}
