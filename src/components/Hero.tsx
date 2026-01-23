@@ -66,7 +66,7 @@ export function Hero({ isDarkMode }: HeroProps) {
   return (
     <section id="hero" style={{ scrollMarginTop: '80px' }} className="min-h-screen pt-24 pb-12 md:pb-0 flex items-center bg-background relative overflow-hidden w-full">
       {/* Large Background Text - Visible on all screens */}
-      <div className="absolute inset-0 flex items-end md:items-center justify-center pointer-events-none select-none overflow-hidden pb-32 md:pb-0">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ['0%', '-50%'] }}
@@ -78,29 +78,29 @@ export function Hero({ isDarkMode }: HeroProps) {
           }}
         >
           <span
-            className="text-[15rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
-              WebkitTextStroke: '2px rgba(255, 107, 53, 0.35)',
+              WebkitTextStroke: '1px rgba(255, 107, 53, 0.25)', // Thinned stroke for better look at huge scale
               color: 'transparent',
-              lineHeight: 1.15,
+              lineHeight: 0.9,
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 900,
               letterSpacing: '-0.02em',
-              paddingRight: '4rem',
+              paddingRight: '6rem',
             }}
           >
             THANOJ BUDDHIMA
           </span>
           <span
-            className="text-[15rem] sm:text-[15rem] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+            className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
             style={{
-              WebkitTextStroke: '2px rgba(255, 107, 53, 0.35)',
+              WebkitTextStroke: '1px rgba(255, 107, 53, 0.25)',
               color: 'transparent',
-              lineHeight: 1.15,
+              lineHeight: 0.9,
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 900,
               letterSpacing: '-0.02em',
-              paddingRight: '4rem',
+              paddingRight: '6rem',
             }}
           >
             THANOJ BUDDHIMA
