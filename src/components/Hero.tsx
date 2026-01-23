@@ -71,7 +71,7 @@ export function Hero({ isDarkMode }: HeroProps) {
   };
 
   return (
-    <section id="hero" style={{ scrollMarginTop: '80px' }} className="min-h-screen pt-24 pb-12 md:pb-0 flex items-center bg-background relative overflow-hidden w-full">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden w-full px-4 sm:px-6 lg:px-8 pt-20">
       {/* Large Background Text - Only rendered on large screens and above */}
       {windowWidth >= 1024 && (
         <div className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -117,7 +117,7 @@ export function Hero({ isDarkMode }: HeroProps) {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 lg:px-8 box-border">
+      <div className="max-w-7xl mx-auto w-full relative z-10 box-border">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Side - Text Content */}
           <motion.div
@@ -128,10 +128,10 @@ export function Hero({ isDarkMode }: HeroProps) {
           >
             <p className="text-muted-foreground mb-1">Hi I am</p>
             <h2 className="text-[#FF6B35] text-4xl md:text-5xl mb-4">Thanoj Buddhima</h2>
-            <div className="mb-4 md:mb-6 h-[100px] sm:h-[120px] md:h-[160px] lg:h-[200px] flex items-center w-full">
-              <h1 className="text-foreground text-2xl sm:text-5xl md:text-6xl lg:text-7xl flex items-center break-words max-w-full">
-                <span className="inline-block min-w-0 break-words">{displayedText}</span>
-                <span className="inline-block w-1 h-6 sm:h-12 md:h-16 lg:h-20 bg-[#FF6B35] ml-1 animate-pulse flex-shrink-0"></span>
+            <div className="mb-4 md:mb-6 h-[80px] sm:h-[100px] md:h-[130px] lg:h-[160px] flex items-center w-full overflow-hidden">
+              <h1 className="text-foreground text-2xl sm:text-5xl md:text-6xl lg:text-7xl flex items-center break-words max-w-full leading-tight">
+                <span className="inline-block min-w-0 break-words">{displayedText || '\u00A0'}</span>
+                <span className="inline-block w-[3px] bg-[#FF6B35] ml-2 animate-pulse flex-shrink-0" style={{ height: '0.8em' }}></span>
               </h1>
             </div>
             <p className="text-muted-foreground text-lg mb-4 md:mb-6 max-w-xl leading-relaxed">

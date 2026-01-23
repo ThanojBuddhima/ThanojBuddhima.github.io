@@ -2,8 +2,8 @@ import { motion } from 'motion/react';
 
 export function About() {
   return (
-    <section id="about" style={{ scrollMarginTop: '80px' }} className="min-h-screen py-12 md:py-32 bg-background flex items-center overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="about" className="min-h-screen bg-background flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="max-w-4xl mx-auto w-full overflow-hidden">
         {/* About Content */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}

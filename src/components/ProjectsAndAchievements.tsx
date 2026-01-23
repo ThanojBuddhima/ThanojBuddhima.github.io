@@ -239,13 +239,12 @@ export function ProjectsAndAchievements() {
     <section
       id="projects-achievements"
       style={{
-        padding: '64px 0 120px 0',
+        padding: '80px 0 40px 0',
         backgroundColor: 'var(--background)',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        scrollMarginTop: '80px',
       }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
