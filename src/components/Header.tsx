@@ -27,8 +27,7 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
   const navItems = [
     { label: 'Home', id: 'hero' },
     { label: 'About Me', id: 'about' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Achievements', id: 'achievements' },
+    { label: 'Projects & Achievements', id: 'projects-achievements' },
     { label: 'Contact', id: 'contact' },
   ];
 

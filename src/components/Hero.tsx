@@ -64,7 +64,7 @@ export function Hero({ isDarkMode }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="min-h-screen pt-24 pb-12 md:pb-0 flex items-center bg-background relative overflow-hidden w-full">
+    <section id="hero" style={{ scrollMarginTop: '80px' }} className="min-h-screen pt-24 pb-12 md:pb-0 flex items-center bg-background relative overflow-hidden w-full">
       {/* Large Background Text - Visible on all screens */}
       <div className="absolute inset-0 flex items-end md:items-center justify-center pointer-events-none select-none overflow-hidden pb-32 md:pb-0">
         <motion.div

@@ -12,7 +12,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-12 md:py-32 bg-background flex items-center">
+    <section id="contact" style={{ scrollMarginTop: '80px' }} className="min-h-screen py-12 md:py-32 bg-background flex items-center">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
