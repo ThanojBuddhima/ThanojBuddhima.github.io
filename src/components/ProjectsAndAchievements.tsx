@@ -65,6 +65,15 @@ const initialItems: ProjectItem[] = [
 export function ProjectsAndAchievements() {
   const [items] = useState<ProjectItem[]>(initialItems);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const collapsedHeight = windowWidth < 768 ? '480px' : (windowWidth < 1024 ? '480px' : '380px');
 
   return (
     <section
@@ -99,12 +108,12 @@ export function ProjectsAndAchievements() {
         {/* Cards Grid Container with expand/collapse logic */}
         <div style={{ position: 'relative' }}>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             style={{
               overflow: 'hidden',
             }}
             animate={{
-              height: isExpanded ? 'auto' : (window.innerWidth < 768 ? '480px' : (window.innerWidth < 1024 ? '480px' : '380px')),
+              height: isExpanded ? 'auto' : collapsedHeight,
             }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
