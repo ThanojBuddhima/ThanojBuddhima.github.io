@@ -30,7 +30,7 @@ export function Footer() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <motion.a
-            href="mailto:thanoj@example.com"
+            href="mailto:thanojbuddhima2003@gmail.com"
             className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
             whileHover={{ scale: 1.2, y: -3 }}
             whileTap={{ scale: 0.95 }}

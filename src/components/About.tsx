@@ -19,8 +19,33 @@ export function About() {
             I've also won several hackathons and competitions, gaining hands-on experience in rapid problem-solving, teamwork, and real-world product development.
           </p>
 
+
+          {/* Skills Section */}
+          <div className="mt-12 mb-12">
+            <h3 className="text-foreground text-2xl mb-6 text-center">My Skills</h3>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                'React', 'TypeScript', 'Node.js', 'Vite', 'Tailwind CSS', 
+                'Framer Motion', 'UI & UX Design', 'Figma', 'Problem Solving',
+                'SQL', 'Git', 'Software Development'
+              ].map((skill, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 107, 53, 0.1)', color: '#FF6B35' }}
+                  className="px-4 py-2 bg-secondary border border-border text-muted-foreground rounded-full text-sm font-medium transition-colors"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+
           {/* Download CV Button - centered */}
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center">
             <motion.button
               onClick={() => {
                 const link = document.createElement('a');
