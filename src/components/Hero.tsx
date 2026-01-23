@@ -17,7 +17,14 @@ export function Hero({ isDarkMode }: HeroProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const imageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const role = roles[currentRole];
@@ -65,48 +72,50 @@ export function Hero({ isDarkMode }: HeroProps) {
 
   return (
     <section id="hero" style={{ scrollMarginTop: '80px' }} className="min-h-screen pt-24 pb-12 md:pb-0 flex items-center bg-background relative overflow-hidden w-full">
-      {/* Large Background Text - Visible on all screens */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            repeatType: 'loop',
-            ease: 'linear',
-          }}
-        >
-          <span
-            className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
-            style={{
-              WebkitTextStroke: '1px rgba(255, 107, 53, 0.25)', // Thinned stroke for better look at huge scale
-              color: 'transparent',
-              lineHeight: 0.9,
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 900,
-              letterSpacing: '-0.02em',
-              paddingRight: '6rem',
+      {/* Large Background Text - Only rendered on large screens and above */}
+      {windowWidth >= 1024 && (
+        <div className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none select-none overflow-hidden">
+          <motion.div
+            className="flex whitespace-nowrap"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              repeatType: 'loop',
+              ease: 'linear',
             }}
           >
-            THANOJ BUDDHIMA
-          </span>
-          <span
-            className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
-            style={{
-              WebkitTextStroke: '1px rgba(255, 107, 53, 0.25)',
-              color: 'transparent',
-              lineHeight: 0.9,
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 900,
-              letterSpacing: '-0.02em',
-              paddingRight: '6rem',
-            }}
-          >
-            THANOJ BUDDHIMA
-          </span>
-        </motion.div>
-      </div>
+            <span
+              className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+              style={{
+                WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)', // Increased thickness for better visibility
+                color: 'transparent',
+                lineHeight: 0.9,
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 900,
+                letterSpacing: '-0.02em',
+                paddingRight: '6rem',
+              }}
+            >
+              THANOJ BUDDHIMA
+            </span>
+            <span
+              className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
+              style={{
+                WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)', // Synchronized thickness
+                color: 'transparent',
+                lineHeight: 0.9,
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 900,
+                letterSpacing: '-0.02em',
+                paddingRight: '6rem',
+              }}
+            >
+              THANOJ BUDDHIMA
+            </span>
+          </motion.div>
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 lg:px-8 box-border">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">

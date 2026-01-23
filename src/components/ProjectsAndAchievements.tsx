@@ -61,6 +61,15 @@ const initialItems: ProjectItem[] = [
     teamName: 'TrippleBoot',
   },
   {
+    id: 'biofusion-2025',
+    name: '5th place - BioFusion 2025',
+    shortDescription: 'Secured 5th place at BioFusion, a machine learning competition organized by the University of Sri Jayewardenepura, representing Team Gmora.',
+    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
+    images: ['/achievements/biofusion.jpg'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
+  {
     id: 'uoj-coders-finalists',
     name: 'Finalists - UOJ Coders v4.0',
     shortDescription: 'Selected as finalists by delivering a strong solution through effective teamwork, problem-solving, and continuous learning in a competitive hackathon environment.',
