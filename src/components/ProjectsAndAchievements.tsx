@@ -58,7 +58,7 @@ const initialItems: ProjectItem[] = [
     githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
     images: ['/achievements/jpuraxtreme.jpg'],
     type: 'achievement',
-    teamName: 'Gmora',
+    teamName: 'TrippleBoot',
   },
   {
     id: 'uoj-coders-finalists',
