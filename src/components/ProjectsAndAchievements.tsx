@@ -108,8 +108,10 @@ export function ProjectsAndAchievements() {
         {/* Cards Grid Container with expand/collapse logic */}
         <div style={{ position: 'relative' }}>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             style={{
+              display: 'grid',
+              gridTemplateColumns: windowWidth < 768 ? '1fr' : (windowWidth < 1024 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'),
+              gap: '24px',
               overflow: 'hidden',
             }}
             animate={{
