@@ -16,38 +16,11 @@ export interface ProjectItem {
 // Sample data - User will add their own projects and achievements
 const initialItems: ProjectItem[] = [
   {
-    id: 'innovatex - champions',
+    id: 'innovatex-champions',
     name: 'Champions - InnovateX',
     shortDescription: 'Won 1st place as Team in the hackathon organized by Zebra Technologies. Developed an innovative ML solution addressing real-world challenges.',
     githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
     images: ['/achievements/innovatex-champions.jpg'],
-    type: 'achievement',
-    teamName: 'Gmora',
-  },
-  {
-    id: 'marga-lk-runners-up',
-    name: 'First Runners-up - Hackelite 2.0',
-    shortDescription: 'Developed Marga.lk, a comprehensive transportation web application for IEEE WIE University of Moratuwa.',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/marga-lk-runners-up.jpg'],
-    type: 'achievement',
-    teamName: 'MetaMind',
-  },
-  {
-    id: 'uoj-coders-finalists',
-    name: 'Finalists - UOJ Coders v4.0',
-    shortDescription: 'Selected as finalists by delivering a strong solution through effective teamwork, problem-solving, and continuous learning in a competitive hackathon environment.',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/uoj-coders-finalists.jpg'],
-    type: 'achievement',
-    teamName: 'DualDudes',
-  },
-  {
-    id: 'algoarena-runners-up',
-    name: 'Second Runners-up - AlgoArena',
-    shortDescription: 'Secured 3rd Place as Team Gmora by developing Leo Connect, a full-stack mobile application supporting club operations and member coordination.',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/algoarena-runners-up.jpg'],
     type: 'achievement',
     teamName: 'Gmora',
   },
@@ -60,6 +33,44 @@ const initialItems: ProjectItem[] = [
     type: 'achievement',
     teamName: 'MetaMind',
   },
+  {
+    id: 'marga-lk-runners-up',
+    name: 'First Runners-up - Hackelite 2.0',
+    shortDescription: 'Developed Marga.lk, a comprehensive transportation web application for IEEE WIE University of Moratuwa.',
+    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
+    images: ['/achievements/marga-lk-runners-up.jpg'],
+    type: 'achievement',
+    teamName: 'MetaMind',
+  },
+  {
+    id: 'algoarena-runners-up',
+    name: 'Second Runners-up - AlgoArena',
+    shortDescription: 'Secured 3rd Place as Team Gmora by developing Leo Connect, a full-stack mobile application supporting club operations and member coordination.',
+    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
+    images: ['/achievements/algoarena-runners-up.jpg'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
+  {
+    id: 'jpuraxtreme-6thplace',
+    name: "6th place - J'PuraXtreme 2.0",
+    shortDescription: 'Secured 6th place by delivering a complete solution in a national-level 24-hour hackathon, demonstrating endurance, teamwork, and focused problem-solving.',
+    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
+    images: ['/achievements/jpuraxtreme.jpg'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
+  {
+    id: 'uoj-coders-finalists',
+    name: 'Finalists - UOJ Coders v4.0',
+    shortDescription: 'Selected as finalists by delivering a strong solution through effective teamwork, problem-solving, and continuous learning in a competitive hackathon environment.',
+    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
+    images: ['/achievements/uoj-coders-finalists.jpg'],
+    type: 'achievement',
+    teamName: 'DualDudes',
+  },
+  
+  
 ];
 
 export function ProjectsAndAchievements() {
@@ -73,7 +84,7 @@ export function ProjectsAndAchievements() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const collapsedHeight = windowWidth < 768 ? '480px' : (windowWidth < 1024 ? '480px' : '380px');
+  const collapsedHeight = windowWidth < 768 ? '480px' : (windowWidth < 1024 ? '480px' : '420px');
 
   return (
     <section
