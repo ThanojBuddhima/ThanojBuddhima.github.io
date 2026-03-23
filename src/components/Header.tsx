@@ -1,4 +1,4 @@
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Home, User, Flame, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'motion/react';
 
@@ -34,10 +34,10 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
   };
 
   const navItems = [
-    { label: 'Home', id: 'hero' },
-    { label: 'About Me', id: 'about' },
-    { label: 'Projects & Achievements', id: 'projects-achievements' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'Home', id: 'hero', icon: Home },
+    { label: 'About Me', id: 'about', icon: User },
+    { label: 'Projects & Achievements', id: 'projects-achievements', icon: Flame },
+    { label: 'Contact', id: 'contact', icon: Mail },
   ];
 
   // Track active section on scroll
@@ -172,34 +172,47 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Floating Right-Side Navigation Islands */}
         <AnimatePresence>
           {mobileMenuOpen && !isMobileDevice && (
             <motion.div 
-              className="lg:hidden py-4 border-t border-border"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              className="lg:hidden absolute top-[72px] right-0 flex flex-col gap-3 items-end pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
             >
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item, index) => (
+              {navItems.map((item, index) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.id;
+                
+                return (
                   <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`transition-colors text-center py-2 ${
-                      activeSection === item.id 
-                        ? 'text-[#FF6B35]' 
-                        : 'text-foreground hover:text-[#FF6B35]'
-                    }`}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className={`${islandClass} px-5 transition-colors group`}
+                    style={{ pointerEvents: 'auto', gap: '12px' }}
+                    initial={{ opacity: 0, x: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {item.label}
+                    <Icon 
+                      size={20} 
+                      className={`transition-colors ${isActive ? 'text-[#FF6B35]' : 'text-muted-foreground group-hover:text-[#FF6B35]'}`}
+                      strokeWidth={isActive ? 2.5 : 2}
+                    />
+                    <span 
+                      className={`font-medium transition-colors ${isActive ? 'text-[#FF6B35]' : 'text-foreground group-hover:text-[#FF6B35]'}`}
+                      style={{ fontSize: '15px' }}
+                    >
+                      {item.label}
+                    </span>
                   </motion.button>
-                ))}
-              </div>
+                );
+              })}
             </motion.div>
           )}
         </AnimatePresence>
