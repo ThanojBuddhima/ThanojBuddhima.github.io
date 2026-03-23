@@ -32,33 +32,34 @@ export function MobileBottomPill() {
   }, []);
 
   return (
-    <div className="fixed left-1/2 -translate-x-1/2 bottom-6 z-[999999] w-[320px] h-[70px]">
-      {/* 
-        The SVG Background matching the exact "U" shape cutout from the image. 
-        It is purely black, no glassmorphism or borders.
-      */}
-      <div className="absolute inset-0 w-full h-full drop-shadow-2xl">
-        <svg viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-lg">
-          <path d="M20 70C8.95431 70 0 61.0457 0 50V35V20C0 8.95431 8.9543 0 20 0H31.7583C41.229 0 49.3304 6.5583 51.4883 15.8647C54.836 30.3013 67.893 41 83.5 41C99.107 41 112.164 30.3013 115.512 15.8647C117.67 6.5583 125.771 0 135.242 0H300C311.046 0 320 8.95431 320 20V50C320 61.0457 311.046 70 300 70H20Z" fill="#0A0A0A"/>
-        </svg>
-      </div>
-
-      {/* Interactive Layer */}
-      <div className="absolute inset-0 flex items-center justify-between w-full h-full pointer-events-none">
-        
-        {/* Floating Active Button hovering strictly inside the SVG "U" Cutout */}
-        <div className="absolute left-[83px] top-[14px] -translate-x-1/2 -translate-y-[8px] pointer-events-auto">
-          <button 
-            type="button"
-            onClick={() => scrollToSection('hero')}
-            className={`w-[48px] h-[48px] rounded-full flex items-center justify-center transition-colors touch-manipulation ${
-              activeSection === 'hero' ? 'bg-[#1a1a1a] text-[#FFB03A]' : 'bg-[#1a1a1a] text-[#FFB03A]'
-            }`}
-            aria-label="Home"
-          >
-            <House fill="currentColor" strokeWidth={2.5} size={22} className={activeSection === 'hero' ? 'opacity-100' : 'opacity-80'} />
-          </button>
+    <div className="fixed flex justify-center left-0 right-0 bottom-6 z-[999999] pointer-events-none">
+      <div className="relative w-[320px] h-[70px]">
+        {/* 
+          The SVG Background matching the exact "U" shape cutout from the image. 
+          Added a subtle white outline (stroke) and slight glow so it doesn't vanish into the dark mode background!
+        */}
+        <div className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <svg viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full filter drop-shadow-[0_0_8px_rgba(255,255,255,0.05)]">
+            <path d="M20 70C8.95431 70 0 61.0457 0 50V35V20C0 8.95431 8.9543 0 20 0H31.7583C41.229 0 49.3304 6.5583 51.4883 15.8647C54.836 30.3013 67.893 41 83.5 41C99.107 41 112.164 30.3013 115.512 15.8647C117.67 6.5583 125.771 0 135.242 0H300C311.046 0 320 8.95431 320 20V50C320 61.0457 311.046 70 300 70H20Z" fill="#111111" stroke="rgba(255,255,255,0.15)" strokeWidth="1"/>
+          </svg>
         </div>
+
+        {/* Interactive Layer */}
+        <div className="absolute inset-0 flex items-center justify-between w-full h-full pointer-events-none">
+          
+          {/* Floating Active Button hovering strictly inside the SVG "U" Cutout */}
+          <div className="absolute left-[83px] top-[14px] -translate-x-1/2 -translate-y-[8px] pointer-events-auto">
+            <button 
+              type="button"
+              onClick={() => scrollToSection('hero')}
+              className={`w-[48px] h-[48px] rounded-full flex items-center justify-center transition-colors shadow-[0_0_10px_rgba(0,0,0,0.5)] touch-manipulation ${
+                activeSection === 'hero' ? 'bg-[#FF6B35] text-white' : 'bg-[#222] text-[#FFB03A]'
+              }`}
+              aria-label="Home"
+            >
+              <House fill="currentColor" strokeWidth={2} size={22} className={activeSection === 'hero' ? 'opacity-100' : 'opacity-80'} />
+            </button>
+          </div>
 
         {/* Right side items */}
         <div className="flex w-full pl-[135px] pr-8 justify-between items-center h-full pointer-events-auto mt-[4px]">
