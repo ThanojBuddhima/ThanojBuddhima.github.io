@@ -1,4 +1,4 @@
-import { House, Zap, Settings } from 'lucide-react';
+import { House, Flame, Settings } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function MobileBottomPill() {
@@ -36,11 +36,10 @@ export function MobileBottomPill() {
       <div className="relative w-[320px] h-[70px]">
         {/* 
           The SVG Background matching the exact "U" shape cutout from the image. 
-          Added a subtle white outline (stroke) and slight glow so it doesn't vanish into the dark mode background!
         */}
         <div className="absolute inset-0 w-full h-full drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]">
           <svg viewBox="0 0 320 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full filter drop-shadow-[0_0_8px_rgba(255,255,255,0.05)]">
-            <path d="M20 70C8.95431 70 0 61.0457 0 50V35V20C0 8.95431 8.9543 0 20 0H31.7583C41.229 0 49.3304 6.5583 51.4883 15.8647C54.836 30.3013 67.893 41 83.5 41C99.107 41 112.164 30.3013 115.512 15.8647C117.67 6.5583 125.771 0 135.242 0H300C311.046 0 320 8.95431 320 20V50C320 61.0457 311.046 70 300 70H20Z" fill="#111111" stroke="rgba(255,255,255,0.15)" strokeWidth="1"/>
+            <path d="M20 70C8.95431 70 0 61.0457 0 50V35V20C0 8.95431 8.9543 0 20 0H31.7583C41.229 0 49.3304 6.5583 51.4883 15.8647C54.836 30.3013 67.893 41 83.5 41C99.107 41 112.164 30.3013 115.512 15.8647C117.67 6.5583 125.771 0 135.242 0H300C311.046 0 320 8.95431 320 20V50C320 61.0457 311.046 70 300 70H20Z" fill="#000000" stroke="rgba(255,255,255,0.15)" strokeWidth="1"/>
           </svg>
         </div>
 
@@ -52,8 +51,8 @@ export function MobileBottomPill() {
             <button 
               type="button"
               onClick={() => scrollToSection('hero')}
-              className={`w-[48px] h-[48px] rounded-full flex items-center justify-center transition-colors shadow-[0_0_10px_rgba(0,0,0,0.5)] touch-manipulation ${
-                activeSection === 'hero' ? 'bg-[#FF6B35] text-white' : 'bg-[#222] text-[#FFB03A]'
+              className={`w-[48px] h-[48px] rounded-full flex items-center justify-center transition-colors touch-manipulation ${
+                activeSection === 'hero' ? 'bg-black text-[#FFB03A]' : 'bg-transparent text-white/80'
               }`}
               aria-label="Home"
             >
@@ -72,8 +71,8 @@ export function MobileBottomPill() {
             }`}
             aria-label="Projects"
           >
-            {/* Using drop icon shape to match screenshot */}
-            <Zap fill="currentColor" size={24} className={activeSection === 'projects-achievements' ? 'opacity-100' : 'opacity-80'} />
+            {/* Using Flame icon shape to match screenshot */}
+            <Flame fill="currentColor" size={24} className={activeSection === 'projects-achievements' ? 'opacity-100' : 'opacity-80'} />
           </button>
 
           <button
@@ -89,6 +88,7 @@ export function MobileBottomPill() {
           
         </div>
       </div>
+    </div>
     </div>
   );
 }
