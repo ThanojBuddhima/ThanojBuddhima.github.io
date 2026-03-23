@@ -12,6 +12,14 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -51,18 +59,25 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const islandClass = isDesktop 
+    ? "pointer-events-auto bg-background/70 backdrop-blur-xl border border-border/50 rounded-full shadow-sm flex items-center h-14"
+    : "flex items-center";
+
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50"
+      className={isDesktop 
+        ? "fixed left-0 right-0 z-50 pointer-events-none transition-all duration-300 top-6"
+        : "fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50 pointer-events-auto transition-all duration-300"
+      }
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <nav style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
-        <div className="flex items-center justify-between h-20">
+      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }} className="relative">
+        <div className="flex items-center justify-between h-20 lg:h-14">
           {/* Logo */}
           <motion.div 
-            className="flex items-center gap-2 cursor-pointer" 
+            className={`gap-2 cursor-pointer ${islandClass} ${isDesktop ? 'px-6' : ''}`}
             onClick={() => scrollToSection('hero')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -74,41 +89,43 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                onMouseEnter={() => setHoveredItem(item.id)}
-                onMouseLeave={() => setHoveredItem(null)}
-                className={`relative pb-2 transition-colors ${
-                  activeSection === item.id 
-                    ? 'text-[#FF6B35]' 
-                    : 'text-foreground hover:text-[#FF6B35]'
-                }`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                <motion.span
-                  animate={{ y: hoveredItem === item.id ? -2 : 0 }}
-                  transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
-                  className="inline-block"
+          {isDesktop && (
+            <div className={`absolute left-1/2 -translate-x-1/2 space-x-8 px-8 ${islandClass}`}>
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  onMouseEnter={() => setHoveredItem(item.id)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className={`relative pb-2 transition-colors ${
+                    activeSection === item.id 
+                      ? 'text-[#FF6B35]' 
+                      : 'text-foreground hover:text-[#FF6B35]'
+                  }`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
-                  {item.label}
-                </motion.span>
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF6B35] origin-center"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: hoveredItem === item.id ? 1 : 0 }}
-                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                />
-              </motion.button>
-            ))}
-          </div>
+                  <motion.span
+                    animate={{ y: hoveredItem === item.id ? -2 : 0 }}
+                    transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
+                    className="inline-block"
+                  >
+                    {item.label}
+                  </motion.span>
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF6B35] origin-center"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: hoveredItem === item.id ? 1 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  />
+                </motion.button>
+              ))}
+            </div>
+          )}
 
           {/* Download CV & Theme Toggle */}
-          <div className="flex items-center space-x-4">
+          <div className={`space-x-4 ${islandClass} ${isDesktop ? 'px-2 pl-4' : ''}`}>
             {/* Download CV Button */}
             <motion.button
               onClick={() => {
