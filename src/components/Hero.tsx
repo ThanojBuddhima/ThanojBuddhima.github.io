@@ -146,7 +146,7 @@ export function Hero({ isDarkMode }: HeroProps) {
             </p>
             <motion.button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-[#FF6B35] text-white rounded-full transition-all"
+              className="hidden lg:inline-flex px-8 py-3 bg-[#FF6B35] text-white rounded-full transition-all"
               whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -241,6 +241,23 @@ export function Hero({ isDarkMode }: HeroProps) {
               >
                 <Instagram size={20} />
               </motion.a>
+            </div>
+
+            {/* Mobile Hire Me Button */}
+            <div className="flex lg:hidden mt-8 w-full justify-center">
+              <motion.button
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="px-8 py-3 bg-[#FF6B35] text-white rounded-full font-medium hover:bg-[#e55a2b] transition-colors shadow-lg shadow-[#FF6B35]/25"
+                whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Hire Me
+              </motion.button>
             </div>
           </motion.div>
         </div>
