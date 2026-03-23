@@ -11,7 +11,12 @@ import { motion, AnimatePresence } from 'motion/react';
 import { isMobile } from 'react-device-detect';
 
 export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return true;
+  });
   const [showScrollTop, setShowScrollTop] = useState(false);
   
   // Robust mobile detection state. Evaluated on mount to avoid resize triggers.
@@ -55,7 +60,7 @@ export default function App() {
     <>
       <div 
         className="relative w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden"
-        style={{ paddingBottom: isMobileDevice ? '7rem' : '0' }}
+        style={{ paddingBottom: isMobileDevice ? '80px' : '0' }}
       >
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobileDevice} />
         <Hero isDarkMode={isDarkMode} />

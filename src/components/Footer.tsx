@@ -5,7 +5,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{ backgroundColor: 'var(--background)', paddingTop: '32px', paddingBottom: '64px', borderTop: '1px solid var(--border)' }}>
+    <footer style={{ backgroundColor: 'var(--background)', paddingTop: '32px', paddingBottom: '24px', borderTop: '1px solid var(--border)' }}>
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Copyright */}
         <motion.div
