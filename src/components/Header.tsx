@@ -80,8 +80,8 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }} className="relative">
-        <div className="flex items-center justify-between h-14">
+      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px', transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)' }} className="relative z-50 w-full">
+        <div className="flex items-center justify-between h-14" style={{ transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)' }}>
           {/* Logo */}
           <motion.div 
             className={`cursor-pointer ${islandClass}`}
