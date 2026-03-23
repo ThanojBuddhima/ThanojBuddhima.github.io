@@ -123,8 +123,8 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
 
           {/* Download CV & Theme Toggle */}
           <div 
-            className={islandClass}
-            style={{ padding: '0 20px', gap: '16px', pointerEvents: 'auto' }}
+            className={`${islandClass} justify-center`}
+            style={{ padding: '0 10px', gap: '8px', pointerEvents: 'auto' }}
           >
             {/* Download CV Button */}
             <motion.button
