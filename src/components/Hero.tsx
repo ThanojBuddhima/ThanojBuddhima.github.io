@@ -244,7 +244,7 @@ export function Hero({ isDarkMode }: HeroProps) {
             </div>
 
             {/* Mobile Hire Me Button */}
-            <div className="flex lg:hidden mt-8 w-full justify-center">
+            <div className="flex lg:hidden mt-12 mb-8 w-full justify-center">
               <motion.button
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
