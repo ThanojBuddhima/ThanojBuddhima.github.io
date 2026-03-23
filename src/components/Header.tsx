@@ -5,9 +5,10 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from 'motion/re
 interface HeaderProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  isMobileDevice?: boolean;
 }
 
-export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
+export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -136,22 +137,23 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-secondary text-foreground hover:bg-muted transition-colors"
-              aria-label="Toggle menu"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </motion.button>
+            {!isMobileDevice && (
+              <motion.button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 rounded-lg bg-secondary text-foreground hover:bg-muted transition-colors"
+                aria-label="Toggle menu"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </motion.button>
+            )}
           </div>
         </div>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
-          {mobileMenuOpen && (
+          {mobileMenuOpen && !isMobileDevice && (
             <motion.div 
               className="lg:hidden py-4 border-t border-border"
               initial={{ opacity: 0, height: 0 }}
