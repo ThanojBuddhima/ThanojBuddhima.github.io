@@ -172,6 +172,16 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
           </div>
         </div>
 
+        {/* Background Click-Away Overlay */}
+        <AnimatePresence>
+          {mobileMenuOpen && !isMobileDevice && (
+            <motion.div 
+              className="fixed inset-0 pointer-events-auto z-[-1]"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+          )}
+        </AnimatePresence>
+
         {/* Floating Right-Side Navigation Islands */}
         <AnimatePresence>
           {mobileMenuOpen && !isMobileDevice && (
