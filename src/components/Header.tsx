@@ -176,7 +176,7 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
         <AnimatePresence>
           {mobileMenuOpen && !isMobileDevice && (
             <motion.div 
-              className="lg:hidden absolute top-[72px] right-0 flex flex-col gap-3 items-end pointer-events-none"
+              className="lg:hidden absolute top-[72px] right-[20px] flex flex-col gap-3 items-end pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
