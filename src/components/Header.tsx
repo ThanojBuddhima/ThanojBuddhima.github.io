@@ -187,30 +187,35 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
                 const isActive = activeSection === item.id;
                 
                 return (
-                  <motion.button
+                  <motion.div
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`${islandClass} px-5 transition-colors group`}
-                    style={{ pointerEvents: 'auto', gap: '12px' }}
+                    className="flex items-center justify-end gap-4 cursor-pointer group"
+                    style={{ pointerEvents: 'auto' }}
                     initial={{ opacity: 0, x: 20, scale: 0.95 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 10, scale: 0.95 }}
                     transition={{ duration: 0.2, delay: index * 0.05 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
-                    <Icon 
-                      size={20} 
-                      className={`transition-colors ${isActive ? 'text-[#FF6B35]' : 'text-muted-foreground group-hover:text-[#FF6B35]'}`}
-                      strokeWidth={isActive ? 2.5 : 2}
-                    />
                     <span 
                       className={`font-medium transition-colors ${isActive ? 'text-[#FF6B35]' : 'text-foreground group-hover:text-[#FF6B35]'}`}
                       style={{ fontSize: '15px' }}
                     >
                       {item.label}
                     </span>
-                  </motion.button>
+                    
+                    <motion.div 
+                      className="w-14 h-14 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-sm flex items-center justify-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Icon 
+                        size={20} 
+                        className={`transition-colors ${isActive ? 'text-[#FF6B35]' : 'text-muted-foreground group-hover:text-[#FF6B35]'}`}
+                        strokeWidth={isActive ? 2.5 : 2}
+                      />
+                    </motion.div>
+                  </motion.div>
                 );
               })}
             </motion.div>
