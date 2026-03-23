@@ -2,7 +2,7 @@
 
 ## Portfolio Website UI Design
 
-🌐 **Live Website:** [https://thanojbuddhima.github.io](https://thanojbuddhima.top)
+🌐 **Live Website:** [https://thanojbuddhima.top](https://thanojbuddhima.top)
 
 ## Running the code
 
