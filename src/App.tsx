@@ -53,7 +53,10 @@ export default function App() {
 
   return (
     <>
-      <div className={`relative w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden ${isMobileDevice ? 'pb-28' : ''}`}>
+      <div 
+        className="relative w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden"
+        style={{ paddingBottom: isMobileDevice ? '7rem' : '0' }}
+      >
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobileDevice} />
         <Hero isDarkMode={isDarkMode} />
         <About />
