@@ -14,6 +14,18 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
 
+  // Lock background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
     handleResize();
