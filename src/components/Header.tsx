@@ -146,23 +146,27 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
 
             <motion.button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-secondary text-foreground hover:bg-muted transition-colors"
+              className="p-2 transition-colors flex items-center justify-center"
               aria-label="Toggle theme"
-              whileHover={{ scale: 1.05 }}
+              initial={{ color: isDarkMode ? '#A1A1AA' : '#52525B' }}
+              animate={{ color: isDarkMode ? '#A1A1AA' : '#52525B' }}
+              whileHover={{ scale: 1.1, color: '#FF6B35' }}
               whileTap={{ scale: 0.95 }}
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? <Sun size={20} strokeWidth={2.5} /> : <Moon size={20} strokeWidth={2.5} />}
             </motion.button>
 
             {!isMobileDevice && (
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-full bg-secondary text-foreground hover:bg-muted transition-colors"
+                className="lg:hidden p-2 transition-colors flex items-center justify-center"
                 aria-label="Toggle menu"
-                whileHover={{ scale: 1.05 }}
+                initial={{ color: isDarkMode ? '#A1A1AA' : '#52525B' }}
+                animate={{ color: isDarkMode ? '#A1A1AA' : '#52525B' }}
+                whileHover={{ scale: 1.1, color: '#FF6B35' }}
                 whileTap={{ scale: 0.95 }}
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={20} strokeWidth={2.5} /> : <Menu size={20} strokeWidth={2.5} />}
               </motion.button>
             )}
           </div>
