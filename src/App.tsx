@@ -5,18 +5,7 @@ import { About } from './components/About';
 import { ProjectsAndAchievements } from './components/ProjectsAndAchievements';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { BottomBar } from './components/BottomBar';
-import { ArrowUp } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { isMobile } from 'react-device-detect';
-import { useState, useEffect } from 'react';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { ProjectsAndAchievements } from './components/ProjectsAndAchievements';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { BottomBar } from './components/BottomBarFixed';
+import { MobileBottomPill } from './components/MobileBottomPill';
 import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { isMobile } from 'react-device-detect';
@@ -70,7 +59,7 @@ export default function App() {
       <ProjectsAndAchievements />
       <Contact />
       <Footer />
-      {showMobileBar && <BottomBar />}
+      {showMobileBar && <MobileBottomPill />}
 
       {/* Scroll to Top Button */}
       <AnimatePresence>
