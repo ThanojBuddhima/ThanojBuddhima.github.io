@@ -9,7 +9,17 @@ import { BottomBar } from './components/BottomBar';
 import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { isMobile } from 'react-device-detect';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Header } from './components/Header';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { ProjectsAndAchievements } from './components/ProjectsAndAchievements';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
+import { BottomBar } from './components/BottomBarFixed';
+import { ArrowUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { isMobile } from 'react-device-detect';
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -25,36 +35,30 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button when user scrolls down 500px or more
-      if (window.scrollY > 500) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      if (window.scrollY > 500) setShowScrollTop(true);
+      else setShowScrollTop(false);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const toggleDarkMode = () => setIsDarkMode((s) => !s);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  const [isSmallScreen, setIsSmallScreen] = useState(() => typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)').matches : false);
+  const [isSmallScreen, setIsSmallScreen] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)').matches : false
+  );
 
-  // keep a simple viewport fallback in case UA detection misses some devices
-  if (typeof window !== 'undefined') {
+  // viewport fallback
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
     const mq = window.matchMedia('(max-width: 1024px)');
-    mq.onchange = (e) => setIsSmallScreen(e.matches);
-  }
+    const onChange = (e: MediaQueryListEvent) => setIsSmallScreen(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   const showMobileBar = isMobile || isSmallScreen;
 
