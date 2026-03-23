@@ -40,40 +40,50 @@ export function MobileBottomPill() {
 
   return (
     <div 
-      className="fixed left-0 right-0 pointer-events-auto shadow-lg" 
+      className="fixed pointer-events-auto" 
       style={{ 
-        bottom: 0, 
+        left: '50%',
+        transform: 'translateX(-50%)',
+        bottom: 'calc(env(safe-area-inset-bottom, 16px) + 16px)', 
+        width: 'calc(100% - 32px)',
+        maxWidth: '380px',
+        height: '66px',
         zIndex: 999999, 
-        backgroundColor: 'rgba(10, 10, 10, 0.95)', 
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)'
+        backgroundColor: 'rgba(20, 20, 20, 0.95)', 
+        border: '1px solid rgba(255, 255, 255, 0.1)', 
+        borderRadius: '50px',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.6)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        padding: '0 8px'
       }}
     >
-      <div 
-        className="flex justify-around items-center w-full" 
-        style={{ 
-          height: '70px', 
-          paddingBottom: 'env(safe-area-inset-bottom)',
-          paddingTop: '4px'
-        }}
-      >
-        {navItems.map((item) => {
-          const isActive = activeSection === item.id;
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="flex flex-col items-center justify-center h-full w-full touch-manipulation transition-colors"
-              style={{ color: isActive ? '#FFB03A' : 'rgba(255, 255, 255, 0.6)' }}
-            >
-              <Icon size={24} style={{ marginBottom: '4px', opacity: isActive ? 1 : 0.8 }} />
-              <span style={{ fontSize: '0.65rem', fontWeight: isActive ? 600 : 400 }}>{item.label}</span>
-            </button>
-          );
-        })}
-      </div>
+      {navItems.map((item) => {
+        const isActive = activeSection === item.id;
+        const Icon = item.icon;
+        return (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className="flex items-center justify-center h-full touch-manipulation transition-all duration-300"
+            style={{ 
+              color: isActive ? '#FFB03A' : 'rgba(255, 255, 255, 0.55)',
+              flex: 1
+            }}
+            aria-label={item.label}
+          >
+            <div style={{
+              transition: 'all 0.3s ease',
+              transform: isActive ? 'scale(1.15)' : 'scale(1)',
+            }}>
+              <Icon strokeWidth={isActive ? 2.5 : 2} size={24} />
+            </div>
+          </button>
+        );
+      })}
     </div>
   );
 }
