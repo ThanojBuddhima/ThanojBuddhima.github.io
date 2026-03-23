@@ -68,11 +68,12 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }} className="relative">
+      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }} className="relative">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <motion.div 
-            className={`gap-2 cursor-pointer ${islandClass} px-5 lg:px-6`}
+            className={`cursor-pointer ${islandClass}`}
+            style={{ padding: '0 24px', gap: '8px', pointerEvents: 'auto' }}
             onClick={() => scrollToSection('hero')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -84,7 +85,10 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className={`hidden lg:flex absolute left-1/2 -translate-x-1/2 space-x-8 px-8 ${islandClass}`}>
+          <div 
+            className={`hidden lg:flex absolute left-1/2 -translate-x-1/2 ${islandClass}`}
+            style={{ padding: '0 32px', gap: '32px', pointerEvents: 'auto' }}
+          >
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
@@ -118,7 +122,10 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
           </div>
 
           {/* Download CV & Theme Toggle */}
-          <div className={`space-x-2 md:space-x-4 ${islandClass} px-2 md:pl-4`}>
+          <div 
+            className={islandClass}
+            style={{ padding: '0 20px', gap: '16px', pointerEvents: 'auto' }}
+          >
             {/* Download CV Button */}
             <motion.button
               onClick={() => {
