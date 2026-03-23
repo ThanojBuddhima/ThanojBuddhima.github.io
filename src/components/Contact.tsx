@@ -50,7 +50,7 @@ export function Contact() {
           >
             <div className="space-y-6 mb-8">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -70,7 +70,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-md bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -159,7 +159,7 @@ export function Contact() {
 
               <motion.button
                 type="submit"
-                className="w-full py-3 bg-[#FF6B35] text-white rounded-md font-medium flex items-center justify-center gap-2 transition-all"
+                className="w-full py-3 bg-[#FF6B35] text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all"
                 whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
                 whileTap={{ scale: 0.95 }}
               >

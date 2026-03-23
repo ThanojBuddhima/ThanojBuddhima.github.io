@@ -28,7 +28,7 @@ export function About() {
                 link.download = 'Thanoj_Buddhima_CV.pdf';
                 link.click();
               }}
-              className="px-8 py-3 bg-[#FF6B35] text-white rounded-md transition-colors"
+              className="px-8 py-3 bg-[#FF6B35] text-white rounded-full transition-colors"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
