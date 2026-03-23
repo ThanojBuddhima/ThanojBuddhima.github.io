@@ -1,42 +1,41 @@
-import { House, Zap, Settings } from 'lucide-react';
+import { House, Zap, Settings, User } from 'lucide-react';
 
 export function MobileBottomPill() {
   return (
-    <div className="fixed inset-x-0 bottom-8 z-[999999] flex justify-center pointer-events-none">
-      <div className="relative pointer-events-auto w-[90%] max-w-[360px]">
-        {/* The rounded pill background */}
-        <div className="flex items-center justify-between bg-[#111111] dark:bg-[#111111] border border-gray-700 shadow-2xl rounded-full px-6 py-3 w-full">
-          <div className="w-10" /> {/* Spacer for the home notch */}
-          <button
-            className="flex items-center justify-center text-gray-300 hover:text-white p-2 transition-colors"
-            aria-label="Explore"
-          >
-            <Zap size={22} />
-          </button>
-
-          <button
-            className="flex items-center justify-center text-gray-300 hover:text-white p-2 transition-colors"
-            aria-label="Settings"
-          >
-            <Settings size={22} />
-          </button>
-
-          <button
-            className="flex items-center justify-center text-gray-300 hover:text-white p-2 transition-colors"
-            aria-label="More"
-          >
+    <div className="fixed left-1/2 -translate-x-1/2 bottom-8 z-[999999] pointer-events-none w-max">
+      <div className="relative pointer-events-auto flex items-center bg-[#111] dark:bg-[#111] border border-gray-800 shadow-2xl rounded-full h-[60px] px-6 gap-8">
+        
+        {/* Protruding left circle with matching rim to blend into the pill */}
+        <div className="absolute -left-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
+          <div className="w-[52px] h-[52px] rounded-full bg-[#FF6B35] border-[4px] border-[#111] flex items-center justify-center text-white shadow-lg">
             <House size={22} />
-          </button>
-        </div>
-
-        {/* Left circular notch with home icon */}
-        <div className="absolute -left-2 top-1/2 transform -translate-y-1/2">
-          <div className="w-[60px] h-[60px] rounded-full bg-background dark:bg-[#111] border border-gray-700 shadow-xl flex items-center justify-center">
-            <div className="w-[44px] h-[44px] rounded-full bg-[#FF6B35] flex items-center justify-center text-white shadow-inner">
-              <House size={20} />
-            </div>
           </div>
         </div>
+
+        {/* Spacer to push out the other icons so they don't hide under the left circle */}
+        <div className="w-2 shrink-0" />
+
+        {/* Other Icons */}
+        <button
+          className="flex items-center justify-center text-gray-400 hover:text-white p-2 transition-colors"
+          aria-label="Explore"
+        >
+          <Zap size={24} />
+        </button>
+
+        <button
+          className="flex items-center justify-center text-gray-400 hover:text-white p-2 transition-colors"
+          aria-label="Settings"
+        >
+          <Settings size={24} />
+        </button>
+
+        <button
+          className="flex items-center justify-center text-gray-400 hover:text-white p-2 transition-colors"
+          aria-label="Profile"
+        >
+          <User size={24} />
+        </button>
       </div>
     </div>
   );
