@@ -42,14 +42,12 @@ export function MobileBottomPill({ isDarkMode }: MobileBottomPillProps) {
     { id: 'contact', icon: Mail, label: 'Contact' },
   ];
 
-  const bgColor = isDarkMode ? 'rgba(20, 20, 20, 0.95)' : 'rgba(255, 255, 255, 0.95)';
-  const borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
   const shadow = isDarkMode ? '0 10px 30px rgba(0,0,0,0.6)' : '0 10px 30px rgba(0,0,0,0.1)';
   const inactiveIconColor = isDarkMode ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)';
 
   return (
     <div 
-      className="fixed pointer-events-auto" 
+      className="fixed pointer-events-auto bg-background/70 backdrop-blur-xl border border-border/50" 
       style={{ 
         left: '50%',
         transform: 'translateX(-50%)',
@@ -58,12 +56,8 @@ export function MobileBottomPill({ isDarkMode }: MobileBottomPillProps) {
         maxWidth: '380px',
         height: '66px',
         zIndex: 999999, 
-        backgroundColor: bgColor, 
-        border: `1px solid ${borderColor}`,
         borderRadius: '50px',
         boxShadow: shadow,
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
