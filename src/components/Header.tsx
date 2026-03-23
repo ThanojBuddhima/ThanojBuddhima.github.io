@@ -134,7 +134,7 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
                 link.download = 'Thanoj_Buddhima_CV.pdf';
                 link.click();
               }}
-              className="hidden md:block px-6 py-2 bg-[#FF6B35] text-white rounded-md transition-colors"
+              className="hidden md:block px-6 py-2 bg-[#FF6B35] text-white rounded-full transition-colors"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -146,7 +146,7 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
 
             <motion.button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-secondary text-foreground hover:bg-muted transition-colors"
+              className="p-2 rounded-full bg-secondary text-foreground hover:bg-muted transition-colors"
               aria-label="Toggle theme"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -157,7 +157,7 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
             {!isMobileDevice && (
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg bg-secondary text-foreground hover:bg-muted transition-colors"
+                className="lg:hidden p-2 rounded-full bg-secondary text-foreground hover:bg-muted transition-colors"
                 aria-label="Toggle menu"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
