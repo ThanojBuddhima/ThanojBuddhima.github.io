@@ -71,7 +71,14 @@ export function Hero({ isDarkMode }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-start lg:items-center justify-center bg-background relative overflow-hidden w-full px-4 sm:px-6 lg:px-8 pt-32 lg:pt-20 pb-32 lg:pb-0">
+    <section id="hero" 
+      className="min-h-screen flex justify-center bg-background relative overflow-hidden w-full px-4 sm:px-6 lg:px-8"
+      style={{ 
+        alignItems: windowWidth < 1024 ? 'flex-start' : 'center',
+        paddingTop: windowWidth < 1024 ? '128px' : '80px',
+        paddingBottom: windowWidth < 1024 ? '128px' : '0'
+      }}
+    >
       {/* Large Background Text - Only rendered on large screens and above */}
       {windowWidth >= 1024 && (
         <div className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none select-none overflow-hidden">
