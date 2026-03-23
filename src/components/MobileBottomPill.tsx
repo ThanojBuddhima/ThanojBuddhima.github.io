@@ -70,7 +70,7 @@ export function MobileBottomPill() {
             onClick={() => scrollToSection(item.id)}
             className="flex items-center justify-center h-full touch-manipulation transition-all duration-300"
             style={{ 
-              color: isActive ? '#FFB03A' : 'rgba(255, 255, 255, 0.55)',
+              color: isActive ? '#FF6B35' : 'rgba(255, 255, 255, 0.55)',
               flex: 1
             }}
             aria-label={item.label}
