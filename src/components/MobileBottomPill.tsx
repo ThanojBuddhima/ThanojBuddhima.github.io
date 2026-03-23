@@ -33,15 +33,20 @@ export function MobileBottomPill() {
   }, []);
 
   return (
-    <div className="fixed left-1/2 -translate-x-1/2 bottom-8 z-[999999] pointer-events-none w-max">
-      <div className="relative pointer-events-auto flex items-center bg-[#111] dark:bg-[#111] border border-gray-800 shadow-2xl rounded-full h-[60px] px-6 gap-8">
+    <div className="fixed left-1/2 -translate-x-1/2 bottom-8 z-[999999] w-max">
+      {/* 
+        Using bg-background/70 backdrop-blur-xl and border-border/50
+        to exactly match the top Header's transparency and styling. 
+      */}
+      <div className="relative flex items-center bg-background/70 backdrop-blur-xl border border-border/50 shadow-2xl rounded-full h-[60px] px-6 gap-8">
         
         {/* Home Notch */}
         <div className="absolute -left-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
           <button 
+            type="button"
             onClick={() => scrollToSection('hero')}
-            className={`w-[52px] h-[52px] rounded-full border-[4px] border-[#111] flex items-center justify-center shadow-lg transition-colors ${
-              activeSection === 'hero' ? 'bg-[#FF6B35] text-white' : 'bg-gray-800 text-gray-400 hover:bg-[#FF6B35] hover:text-white'
+            className={`w-[52px] h-[52px] rounded-full border-[4px] border-background flex items-center justify-center shadow-lg transition-colors ${
+              activeSection === 'hero' ? 'bg-[#FF6B35] text-white' : 'bg-secondary text-foreground hover:bg-[#FF6B35] hover:text-white'
             }`}
             aria-label="Home"
           >
@@ -54,9 +59,10 @@ export function MobileBottomPill() {
 
         {/* About / Profile */}
         <button
+          type="button"
           onClick={() => scrollToSection('about')}
-          className={`flex items-center justify-center p-2 transition-colors ${
-            activeSection === 'about' ? 'text-[#FF6B35]' : 'text-gray-400 hover:text-white'
+          className={`flex items-center justify-center p-2 transition-colors touch-manipulation ${
+            activeSection === 'about' ? 'text-[#FF6B35]' : 'text-foreground/70 hover:text-foreground'
           }`}
           aria-label="About"
         >
@@ -65,9 +71,10 @@ export function MobileBottomPill() {
 
         {/* Projects / Explore */}
         <button
+          type="button"
           onClick={() => scrollToSection('projects-achievements')}
-          className={`flex items-center justify-center p-2 transition-colors ${
-            activeSection === 'projects-achievements' ? 'text-[#FF6B35]' : 'text-gray-400 hover:text-white'
+          className={`flex items-center justify-center p-2 transition-colors touch-manipulation ${
+            activeSection === 'projects-achievements' ? 'text-[#FF6B35]' : 'text-foreground/70 hover:text-foreground'
           }`}
           aria-label="Projects"
         >
@@ -76,9 +83,10 @@ export function MobileBottomPill() {
 
         {/* Contact */}
         <button
+          type="button"
           onClick={() => scrollToSection('contact')}
-          className={`flex items-center justify-center p-2 transition-colors ${
-            activeSection === 'contact' ? 'text-[#FF6B35]' : 'text-gray-400 hover:text-white'
+          className={`flex items-center justify-center p-2 transition-colors touch-manipulation ${
+            activeSection === 'contact' ? 'text-[#FF6B35]' : 'text-foreground/70 hover:text-foreground'
           }`}
           aria-label="Contact"
         >
