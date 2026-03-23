@@ -40,45 +40,68 @@ export default function App() {
     typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)').matches : false
   );
 
-  // viewport fallback
+  // Render bottom bar only for real mobile devices (no viewport fallback).
+  // Temporary debug override: visiting `?showMobileBar=1` will force the bar for testing on desktop.
+  const [isRealMobile, setIsRealMobile] = useState(isMobile);
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const mq = window.matchMedia('(max-width: 1024px)');
-    const onChange = (e: MediaQueryListEvent) => setIsSmallScreen(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
+    const checkTouchAndNarrow = () => {
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isNarrow = window.innerWidth <= 1024;
+      return hasTouch && isNarrow;
+    };
+    
+    // We only want this effect to override `isMobile` if we detect a true touch device that happens to have a narrow screen (meaning it is a real mobile device and not a desktop resize).
+    if (!isMobile && checkTouchAndNarrow()) {
+      setIsRealMobile(true);
+    }
   }, []);
 
-  const showMobileBar = isMobile || isSmallScreen;
+  const debugForce =
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('showMobileBar') === '1';
+
+  const showMobileBar = isRealMobile || debugForce;
 
   return (
-    <div className={`w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden ${showMobileBar ? 'pb-28' : ''}`}>
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={showMobileBar} />
-      <Hero isDarkMode={isDarkMode} />
-      <About />
-      <ProjectsAndAchievements />
-      <Contact />
-      <Footer />
-      {showMobileBar && <MobileBottomPill />}
+    <>
+      {/* Tiny diagnostic banner floating at the absolute top so we know what device detector thinks */}
+      {debugForce && (
+        <div className="fixed top-0 left-0 w-full bg-red-600 text-white text-xs z-[99999] text-center font-mono py-1">
+          Device Detect: isMobile={String(isMobile)} | UserAgent: {typeof navigator !== 'undefined' ? navigator.userAgent.slice(0, 30) + '...' : 'none'}
+        </div>
+      )}
 
-      {/* Scroll to Top Button */}
-      <AnimatePresence>
-        {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-            onClick={scrollToTop}
-            className={`fixed right-8 z-50 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center transition-colors ${showMobileBar ? 'bottom-32' : 'bottom-8'}`}
-            whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={24} />
-          </motion.button>
-        )}
-      </AnimatePresence>
-    </div>
+      <div className={`relative w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden ${showMobileBar ? 'pb-28' : ''}`}>
+        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={showMobileBar} />
+        <Hero isDarkMode={isDarkMode} />
+        <About />
+        <ProjectsAndAchievements />
+        <Contact />
+        <Footer />
+
+        {/* Scroll to Top Button */}
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              onClick={scrollToTop}
+              className={`fixed right-8 z-50 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center transition-colors ${showMobileBar ? 'bottom-32' : 'bottom-8'}`}
+              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Scroll to top"
+            >
+              <ArrowUp size={24} />
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Render the mobile pill completely outside the overflow-hidden wrapper so mobile Safari doesn't accidentally chop it off */}
+      {showMobileBar && <MobileBottomPill />}
+    </>
   );
 }

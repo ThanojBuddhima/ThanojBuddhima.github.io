@@ -2,8 +2,8 @@ import { House, Zap, Settings } from 'lucide-react';
 
 export function MobileBottomPill() {
   return (
-    <div className="fixed left-1/2 transform -translate-x-1/2 bottom-6 z-[60] lg:hidden">
-      <div className="relative">
+    <div className="fixed left-0 right-0 bottom-6 z-[9999] flex justify-center pointer-events-none">
+      <div className="relative pointer-events-auto">
         {/* The rounded pill background */}
         <div className="flex items-center gap-6 bg-background/95 border border-border/60 shadow-xl rounded-full px-6 py-2 max-w-md mx-auto">
           <div className="w-12" />
