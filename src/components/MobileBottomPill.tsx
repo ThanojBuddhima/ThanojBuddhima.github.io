@@ -1,7 +1,11 @@
 import { House, User, Flame, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-export function MobileBottomPill() {
+interface MobileBottomPillProps {
+  isDarkMode: boolean;
+}
+
+export function MobileBottomPill({ isDarkMode }: MobileBottomPillProps) {
   const [activeSection, setActiveSection] = useState('hero');
 
   const scrollToSection = (id: string) => {
@@ -38,6 +42,11 @@ export function MobileBottomPill() {
     { id: 'contact', icon: Mail, label: 'Contact' },
   ];
 
+  const bgColor = isDarkMode ? 'rgba(20, 20, 20, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+  const borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+  const shadow = isDarkMode ? '0 10px 30px rgba(0,0,0,0.6)' : '0 10px 30px rgba(0,0,0,0.1)';
+  const inactiveIconColor = isDarkMode ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)';
+
   return (
     <div 
       className="fixed pointer-events-auto" 
@@ -49,10 +58,10 @@ export function MobileBottomPill() {
         maxWidth: '380px',
         height: '66px',
         zIndex: 999999, 
-        backgroundColor: 'rgba(20, 20, 20, 0.95)', 
-        border: '1px solid rgba(255, 255, 255, 0.1)', 
+        backgroundColor: bgColor, 
+        border: `1px solid ${borderColor}`,
         borderRadius: '50px',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.6)',
+        boxShadow: shadow,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         display: 'flex',
@@ -70,7 +79,7 @@ export function MobileBottomPill() {
             onClick={() => scrollToSection(item.id)}
             className="flex items-center justify-center h-full touch-manipulation transition-all duration-300"
             style={{ 
-              color: isActive ? '#FF6B35' : 'rgba(255, 255, 255, 0.55)',
+              color: isActive ? '#FF6B35' : inactiveIconColor,
               flex: 1
             }}
             aria-label={item.label}

@@ -85,7 +85,7 @@ export default function App() {
       </div>
 
       {/* Render the mobile pill completely outside the overflow-hidden wrapper so mobile Safari doesn't accidentally chop it off */}
-      {isMobileDevice && <MobileBottomPill />}
+      {isMobileDevice && <MobileBottomPill isDarkMode={isDarkMode} />}
     </>
   );
 }
