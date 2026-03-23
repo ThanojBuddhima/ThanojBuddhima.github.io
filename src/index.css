@@ -1701,3 +1701,8 @@ html {
     opacity: .5;
   }
 }
+
+/* Fallback for rounded-full to universally enforce pill-shaped buttons */
+.rounded-full {
+  border-radius: 9999px !important;
+}

@@ -322,7 +322,7 @@ export function ProjectsAndAchievements() {
                 backgroundColor: '#FF6B35',
                 border: '1px solid #FF6B35',
                 color: 'white',
-                borderRadius: '8px',
+                borderRadius: '50px',
                 fontWeight: '500',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap'
