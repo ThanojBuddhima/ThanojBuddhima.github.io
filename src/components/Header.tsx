@@ -176,7 +176,13 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
         <AnimatePresence>
           {mobileMenuOpen && !isMobileDevice && (
             <motion.div 
-              className="fixed inset-0 pointer-events-auto z-[-1] bg-background/60 backdrop-blur-md"
+              className="fixed inset-0 pointer-events-auto"
+              style={{ 
+                zIndex: -1, 
+                backdropFilter: 'blur(12px)', 
+                WebkitBackdropFilter: 'blur(12px)',
+                backgroundColor: isDarkMode ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)'
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
