@@ -37,10 +37,10 @@ export function BottomBar() {
   }, []);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/60 bg-background/95 backdrop-blur-xl lg:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-border/60 bg-background/95 backdrop-blur-xl lg:hidden">
       <div
-        className="mx-auto grid max-w-md grid-cols-4 px-2 py-2"
-        style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}
+        className="mx-auto grid max-w-md grid-cols-4 px-3 py-3"
+        style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
       >
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -51,7 +51,7 @@ export function BottomBar() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`flex flex-col items-center justify-center gap-1 rounded-md py-2 text-xs transition-colors ${
-                isActive ? 'text-[#FF6B35]' : 'text-muted-foreground hover:text-foreground'
+                isActive ? 'text-[#FF6B35]' : 'text-foreground/70 hover:text-foreground'
               }`}
               aria-label={`Go to ${item.label}`}
             >

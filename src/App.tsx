@@ -9,6 +9,7 @@ import { BottomBar } from './components/BottomBar';
 import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { isMobile } from 'react-device-detect';
+import { useState } from 'react';
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -47,15 +48,25 @@ export default function App() {
     });
   };
 
+  const [isSmallScreen, setIsSmallScreen] = useState(() => typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)').matches : false);
+
+  // keep a simple viewport fallback in case UA detection misses some devices
+  if (typeof window !== 'undefined') {
+    const mq = window.matchMedia('(max-width: 1024px)');
+    mq.onchange = (e) => setIsSmallScreen(e.matches);
+  }
+
+  const showMobileBar = isMobile || isSmallScreen;
+
   return (
-    <div className={`w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden ${isMobile ? 'pb-24' : ''}`}>
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobile} />
+    <div className={`w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden ${showMobileBar ? 'pb-28' : ''}`}>
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={showMobileBar} />
       <Hero isDarkMode={isDarkMode} />
       <About />
       <ProjectsAndAchievements />
       <Contact />
       <Footer />
-      {isMobile && <BottomBar />}
+      {showMobileBar && <BottomBar />}
 
       {/* Scroll to Top Button */}
       <AnimatePresence>
@@ -66,7 +77,7 @@ export default function App() {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
             onClick={scrollToTop}
-            className={`fixed right-8 z-50 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center transition-colors ${isMobile ? 'bottom-28' : 'bottom-8'}`}
+            className={`fixed right-8 z-50 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center transition-colors ${showMobileBar ? 'bottom-32' : 'bottom-8'}`}
             whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
             whileTap={{ scale: 0.9 }}
             aria-label="Scroll to top"
