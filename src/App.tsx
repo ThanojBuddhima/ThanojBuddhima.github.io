@@ -40,20 +40,19 @@ export default function App() {
     typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)').matches : false
   );
 
-  // Render bottom bar only for real mobile devices (no viewport fallback).
-  // Temporary debug override: visiting `?showMobileBar=1` will force the bar for testing on desktop.
-  const [isRealMobile, setIsRealMobile] = useState(isMobile);
+  // We use standard React state to hold the mobile detection status to prevent hydration/render mismatches.
+  const [isRealMobile, setIsRealMobile] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const checkTouchAndNarrow = () => {
-      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const isNarrow = window.innerWidth <= 1024;
-      return hasTouch && isNarrow;
-    };
     
-    // We only want this effect to override `isMobile` if we detect a true touch device that happens to have a narrow screen (meaning it is a real mobile device and not a desktop resize).
-    if (!isMobile && checkTouchAndNarrow()) {
+    // Aggressive universal mobile checks:
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isNarrow = window.innerWidth <= 1024;
+    const isUserAgentMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // If ANY mobile indicator is true, we consider it a mobile device.
+    if (isMobile || isUserAgentMobile || (hasTouch && isNarrow)) {
       setIsRealMobile(true);
     }
   }, []);

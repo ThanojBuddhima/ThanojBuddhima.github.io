@@ -2,38 +2,38 @@ import { House, Zap, Settings } from 'lucide-react';
 
 export function MobileBottomPill() {
   return (
-    <div className="fixed left-0 right-0 bottom-6 z-[9999] flex justify-center pointer-events-none">
-      <div className="relative pointer-events-auto">
+    <div className="fixed inset-x-0 bottom-8 z-[999999] flex justify-center pointer-events-none">
+      <div className="relative pointer-events-auto w-[90%] max-w-[360px]">
         {/* The rounded pill background */}
-        <div className="flex items-center gap-6 bg-background/95 border border-border/60 shadow-xl rounded-full px-6 py-2 max-w-md mx-auto">
-          <div className="w-12" />
+        <div className="flex items-center justify-between bg-[#111111] dark:bg-[#111111] border border-gray-700 shadow-2xl rounded-full px-6 py-3 w-full">
+          <div className="w-10" /> {/* Spacer for the home notch */}
           <button
-            className="flex items-center justify-center text-foreground/90 hover:text-foreground p-2"
+            className="flex items-center justify-center text-gray-300 hover:text-white p-2 transition-colors"
             aria-label="Explore"
           >
-            <Zap size={20} />
+            <Zap size={22} />
           </button>
 
           <button
-            className="flex items-center justify-center text-foreground/90 hover:text-foreground p-2"
+            className="flex items-center justify-center text-gray-300 hover:text-white p-2 transition-colors"
             aria-label="Settings"
           >
-            <Settings size={20} />
+            <Settings size={22} />
           </button>
 
           <button
-            className="flex items-center justify-center text-foreground/90 hover:text-foreground p-2"
+            className="flex items-center justify-center text-gray-300 hover:text-white p-2 transition-colors"
             aria-label="More"
           >
-            <House size={20} />
+            <House size={22} />
           </button>
         </div>
 
         {/* Left circular notch with home icon */}
-        <div className="absolute -left-6 top-1/2 transform -translate-y-1/2">
-          <div className="w-14 h-14 rounded-full bg-background border border-border/60 shadow-lg flex items-center justify-center">
-            <div className="w-10 h-10 rounded-full bg-[#FF6B35] flex items-center justify-center text-white">
-              <House size={18} />
+        <div className="absolute -left-2 top-1/2 transform -translate-y-1/2">
+          <div className="w-[60px] h-[60px] rounded-full bg-background dark:bg-[#111] border border-gray-700 shadow-xl flex items-center justify-center">
+            <div className="w-[44px] h-[44px] rounded-full bg-[#FF6B35] flex items-center justify-center text-white shadow-inner">
+              <House size={20} />
             </div>
           </div>
         </div>
