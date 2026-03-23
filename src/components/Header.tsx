@@ -172,11 +172,15 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
           </div>
         </div>
 
-        {/* Background Click-Away Overlay */}
+        {/* Background Click-Away Overlay with Blur Drop */}
         <AnimatePresence>
           {mobileMenuOpen && !isMobileDevice && (
             <motion.div 
-              className="fixed inset-0 pointer-events-auto z-[-1]"
+              className="fixed inset-0 pointer-events-auto z-[-1] bg-background/60 backdrop-blur-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={() => setMobileMenuOpen(false)}
             />
           )}
@@ -186,7 +190,8 @@ export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: H
         <AnimatePresence>
           {mobileMenuOpen && !isMobileDevice && (
             <motion.div 
-              className="lg:hidden absolute top-[72px] right-[20px] flex flex-col gap-3 items-end pointer-events-none"
+              className="lg:hidden absolute top-[72px] flex flex-col gap-3 items-end pointer-events-none"
+              style={{ right: '20px' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
