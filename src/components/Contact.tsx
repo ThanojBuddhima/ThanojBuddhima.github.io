@@ -50,7 +50,7 @@ export function Contact() {
           >
             <div className="space-y-6 mb-8">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -70,7 +70,7 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-[#FF6B35] hover:text-white transition-all border border-border"
+                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-[#0A66C2] hover:text-white transition-all border border-border"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -126,7 +126,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#0A66C2] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
                   />
                 </div>
 
@@ -139,7 +139,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your Email"
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#0A66C2] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
                   />
                 </div>
 
@@ -152,15 +152,15 @@ export function Contact() {
                     placeholder="Your Message..."
                     required
                     rows={4}
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all resize-none placeholder:text-muted-foreground/60 text-sm"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#0A66C2] text-foreground transition-all resize-none placeholder:text-muted-foreground/60 text-sm"
                   />
                 </div>
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full py-3 bg-[#FF6B35] text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all"
-                whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
+                className="w-full py-3 bg-[#0A66C2] text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all"
+                whileHover={{ scale: 1.05, backgroundColor: '#004182' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Send size={16} />

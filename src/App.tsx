@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { Education } from './components/Education';
 import { ProjectsAndAchievements } from './components/ProjectsAndAchievements';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -65,6 +66,7 @@ export default function App() {
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobileDevice} />
         <Hero isDarkMode={isDarkMode} />
         <About />
+        <Education />
         <ProjectsAndAchievements />
         <Contact />
         <Footer />
@@ -78,8 +80,8 @@ export default function App() {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
               onClick={scrollToTop}
-              className={`fixed right-8 z-50 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center transition-colors ${isMobileDevice ? 'bottom-32' : 'bottom-8'}`}
-              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
+              className={`fixed right-8 z-50 w-12 h-12 bg-[#0A66C2] text-white rounded-full flex items-center justify-center transition-colors ${isMobileDevice ? 'bottom-32' : 'bottom-8'}`}
+              whileHover={{ scale: 1.05, backgroundColor: '#004182' }}
               whileTap={{ scale: 0.9 }}
               aria-label="Scroll to top"
             >

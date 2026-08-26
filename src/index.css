@@ -109,7 +109,7 @@
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
     line-height: 1.5;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-family: 'Inter', var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
     font-feature-settings: var(--default-font-feature-settings, normal);
     font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
@@ -1475,20 +1475,20 @@
   --card-foreground: #1a1a1a;
   --popover: #fff;
   --popover-foreground: #1a1a1a;
-  --primary: #ff6b35;
+  --primary: #0A66C2;
   --primary-foreground: #fff;
   --secondary: #f5f5f5;
   --secondary-foreground: #1a1a1a;
   --muted: #f5f5f5;
   --muted-foreground: #6b7280;
-  --accent: #ff6b35;
+  --accent: #0A66C2;
   --accent-foreground: #fff;
   --destructive: #ef4444;
   --destructive-foreground: #fff;
   --border: #e5e7eb;
   --input: #f9fafb;
   --input-background: #f9fafb;
-  --ring: #ff6b35;
+  --ring: #0A66C2;
   --font-weight-medium: 600;
   --font-weight-normal: 400;
   --radius: .5rem;
@@ -1501,20 +1501,20 @@
   --card-foreground: #fff;
   --popover: #141414;
   --popover-foreground: #fff;
-  --primary: #ff6b35;
+  --primary: #0A66C2;
   --primary-foreground: #fff;
   --secondary: #1a1a1a;
   --secondary-foreground: #fff;
   --muted: #1a1a1a;
   --muted-foreground: #a0a0a0;
-  --accent: #ff6b35;
+  --accent: #0A66C2;
   --accent-foreground: #fff;
   --destructive: #ef4444;
   --destructive-foreground: #fff;
   --border: #262626;
   --input: #1a1a1a;
   --input-background: #1a1a1a;
-  --ring: #ff6b35;
+  --ring: #0A66C2;
 }
 
 html {

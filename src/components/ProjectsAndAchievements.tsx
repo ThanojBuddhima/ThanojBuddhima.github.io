@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Github, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
-// Define the type for a project/achievement item
 export interface ProjectItem {
   id: string;
   name: string;
@@ -17,7 +16,7 @@ const initialItems: ProjectItem[] = [
   {
     id: 'innovatex-champions',
     name: 'Champions - InnovateX',
-    shortDescription: 'Won 1st place as Team in the hackathon organized by Zebra Technologies. Developed an innovative ML solution addressing real-world challenges.\nTeam members: Kusal Pabasara, Pasidu Mihiranga, Kavinu Saputhanthri',
+    shortDescription: 'Won 1st place in the hackathon organized by Zebra Technologies. Developed an innovative ML solution addressing real-world challenges.',
     githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
     images: ['/achievements/innovatex-champions.jpg'],
     type: 'achievement',
@@ -26,7 +25,7 @@ const initialItems: ProjectItem[] = [
   {
     id: 'octwave-champions',
     name: 'Champions - OctWave 2.0',
-    shortDescription: 'Secured 1st place by developing a high-performing machine learning solution that outperformed standard baseline models in a Kaggle-based competition.\nTeam members: Chanupa Hansaja, Kusal Pabasara, Suhas Dissanayake',
+    shortDescription: 'Secured 1st place by developing a high-performing machine learning solution that outperformed standard baseline models in a Kaggle-based competition.',
     githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
     images: ['/achievements/octwave-champions.jpg'],
     type: 'achievement',
@@ -35,304 +34,91 @@ const initialItems: ProjectItem[] = [
   {
     id: 'marga-lk-runners-up',
     name: 'First Runners-up - Hackelite 2.0',
-    shortDescription: 'Developed Marga.lk, a comprehensive transportation web application for IEEE WIE University of Moratuwa.\nTeam members: Kusal Pabasara, Hashini Fernando, Nethmini Pelige',
+    shortDescription: 'Developed Marga.lk, a comprehensive transportation web application for IEEE WIE University of Moratuwa.',
     githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
     images: ['/achievements/marga-lk-runners-up.jpg'],
     type: 'achievement',
     teamName: 'MetaMind',
   },
-  {
-    id: 'algoarena-runners-up',
-    name: 'Second Runners-up - AlgoArena',
-    shortDescription: 'Secured 3rd Place as Team Gmora by developing Leo Connect, a full-stack mobile application supporting club operations and member coordination.\nTeam members: Pasidu Mihiranga, Kusal Pabasara, Kavinu Saputhanthri',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/algoarena-runners-up.jpg'],
-    type: 'achievement',
-    teamName: 'Gmora',
-  },
-  {
-    id: 'jpuraxtreme-6thplace',
-    name: "6th place - J'PuraXtreme 2.0",
-    shortDescription: 'Secured 6th place by delivering a complete solution in a national-level 24-hour hackathon, demonstrating endurance, teamwork, and focused problem-solving.\nTeam members: Kusal Pabasara, Pasidu Mihiranga',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/jpuraxtreme.jpg'],
-    type: 'achievement',
-    teamName: 'TrippleBoot',
-  },
-  {
-    id: 'biofusion-2025',
-    name: '5th place - BioFusion 2025',
-    shortDescription: 'Secured 5th place at BioFusion, a machine learning competition organized by the University of Sri Jayewardenepura, representing Team Gmora.\nTeam members: Chanupa Hansaja, Kusal Pabasara, Pasidu Mihiranga, Senuja Dilmith',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/biofusion.jpg'],
-    type: 'achievement',
-    teamName: 'Gmora',
-  },
-  {
-    id: 'uoj-coders-finalists',
-    name: 'Finalists - UOJ Coders v4.0',
-    shortDescription: 'Selected as finalists by delivering a strong solution through effective teamwork, problem-solving, and continuous learning in a competitive hackathon environment.\nTeam members: Kusal Pabasara',
-    githubUrl: 'https://github.com/ThanojBuddhima/ThanojBuddhima.github.io',
-    images: ['/achievements/uoj-coders-finalists.jpg'],
-    type: 'achievement',
-    teamName: 'DualDudes',
-  },
 ];
-
-interface ProjectCardProps {
-  item: ProjectItem;
-  index: number;
-  onExpand: () => void;
-}
-
-function ProjectCard({ item, index, onExpand }: ProjectCardProps) {
-  const [isIndividualExpanded, setIsIndividualExpanded] = useState(false);
-  
-  // Check if description is long enough to need "Show More"
-  const needsExpansion = item.shortDescription.length > 120 || item.shortDescription.includes('\n');
-
-  const handleToggle = () => {
-    if (!needsExpansion) return;
-    const newExpandedState = !isIndividualExpanded;
-    setIsIndividualExpanded(newExpandedState);
-    // If we expand an individual card, we should also ensure the whole section is expanded
-    // to prevent the card from being clipped by the parent overflow: hidden
-    if (newExpandedState) {
-      onExpand();
-    }
-  };
-
-  return (
-    <motion.div
-      layout
-      style={{
-        backgroundColor: 'var(--card)',
-        border: '1px solid var(--border)',
-        borderRadius: '12px',
-        overflow: 'hidden',
-        minHeight: '310px', // Prevent squashing on mobile
-        height: isIndividualExpanded ? 'auto' : '310px',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.3, delay: index * 0.1 }}
-      className="group hover:border-[#FF6B35] transition-all duration-300"
-    >
-      {/* Card Image */}
-      <div style={{ position: 'relative', height: '160px', overflow: 'hidden', flexShrink: 0 }}>
-        {item.images.length > 0 && (
-          <img
-            src={item.images[0]}
-            alt={item.name}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            className="group-hover:scale-105 transition-transform duration-300"
-          />
-        )}
-        {/* Type Badge */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '12px',
-            right: '12px',
-            padding: '4px 8px',
-            fontSize: '10px',
-            fontWeight: '500',
-            borderRadius: '6px',
-            backgroundColor: '#FF6B35',
-            color: 'white',
-          }}
-        >
-          {item.type === 'project' ? 'Project' : 'Achievement'}
-        </span>
-      </div>
-
-      {/* Card Content */}
-      <div 
-        style={{ padding: '16px', flexGrow: 1, display: 'flex', flexDirection: 'column', position: 'relative', cursor: needsExpansion ? 'pointer' : 'default' }}
-        onClick={handleToggle}
-      >
-        {/* Icons Row */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', minHeight: '18px' }}>
-          <div style={{ fontSize: '12px', color: '#FF6B35', fontWeight: '500' }}>
-            {item.teamName && `Team ${item.teamName}`}
-          </div>
-          {item.githubUrl && (
-            <a
-              href={item.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-[#FF6B35] transition-colors"
-              onClick={(e: React.MouseEvent) => e.stopPropagation()}
-            >
-              <Github size={18} />
-            </a>
-          )}
-        </div>
-
-        {/* Title */}
-        <h3
-          style={{
-            fontSize: '14px',
-            fontWeight: '600',
-            marginBottom: '8px',
-            color: 'var(--foreground)',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          <span className="group-hover:text-[#FF6B35] transition-colors">{item.name}</span>
-        </h3>
-
-        {/* Description */}
-        <div style={{ position: 'relative', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-          <p
-            style={{
-              fontSize: '12px',
-              color: 'var(--muted-foreground)',
-              display: isIndividualExpanded ? 'block' : '-webkit-box',
-              WebkitLineClamp: isIndividualExpanded ? 'unset' : 3,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              whiteSpace: 'pre-line', // Important for \n support
-              lineHeight: '1.5',
-            }}
-          >
-            {item.shortDescription}
-          </p>
-          
-          {needsExpansion && !isIndividualExpanded && (
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: '30px',
-              background: 'linear-gradient(to bottom, transparent, var(--card))',
-              pointerEvents: 'none',
-              zIndex: 1,
-            }} />
-          )}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 export function ProjectsAndAchievements() {
   const [items] = useState<ProjectItem[]>(initialItems);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-
-  React.useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const collapsedHeight = windowWidth < 768 ? '480px' : (windowWidth < 1024 ? '480px' : '420px');
 
   return (
-    <section
-      id="projects-achievements"
-      style={{
-        padding: '80px 0 40px 0',
-        backgroundColor: 'var(--background)',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-    >
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
-        {/* Section Header */}
+    <section id="projects-achievements" className="py-24 bg-background">
+      <div className="max-w-6xl mx-auto px-6">
+        
         <motion.div
-          style={{ marginBottom: '40px', textAlign: 'center' }}
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '12px', color: 'var(--foreground)' }}>
+          <span className="text-[#0A66C2] text-xs font-bold tracking-widest uppercase mb-2 block">
+            Portfolio
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
             Projects & Achievements
           </h2>
-          <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem' }}>
-            Hackathon wins, projects, and competitions
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A selection of hackathon wins, projects, and competitions I've participated in.
           </p>
         </motion.div>
 
-        {/* Cards Grid Container with expand/collapse logic */}
-        <div style={{ position: 'relative' }}>
-          <motion.div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: windowWidth < 768 ? '1fr' : (windowWidth < 1024 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'),
-              gap: '24px',
-              overflow: 'hidden',
-              alignItems: 'start', // Prevent squashing/stretching
-            }}
-            animate={{
-              height: isExpanded ? 'auto' : collapsedHeight,
-            }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          >
-            {items.map((item: ProjectItem, index: number) => (
-              <ProjectCard 
-                key={item.id} 
-                item={item} 
-                index={index} 
-                onExpand={() => setIsExpanded(true)}
-              />
-            ))}
-          </motion.div>
-
-          {/* Shaded Transparent Overlay when collapsed */}
-          {!isExpanded && (
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: '150px',
-                background: 'linear-gradient(to bottom, transparent, var(--background))',
-                pointerEvents: 'none',
-                zIndex: 10,
-              }}
-            />
-          )}
-          {/* See More Button - Overlapping with the fade effect */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: isExpanded ? '-80px' : '10px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              zIndex: 20,
-              textAlign: 'center',
-            }}
-          >
-            <motion.button
-              onClick={() => setIsExpanded(!isExpanded)}
-              style={{
-                padding: '10px 24px',
-                backgroundColor: '#FF6B35',
-                border: '1px solid #FF6B35',
-                color: 'white',
-                borderRadius: '50px',
-                fontWeight: '500',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap'
-              }}
-              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
-              whileTap={{ scale: 0.95 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {items.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="group flex flex-col bg-card rounded-2xl border border-border overflow-hidden hover:border-[#0A66C2]/50 hover:shadow-lg hover:shadow-[#0A66C2]/5 transition-all duration-300"
             >
-              {isExpanded ? 'See Less ↑' : 'See More ↓'}
-            </motion.button>
-          </div>
+              {/* Image Container */}
+              <div className="relative h-48 overflow-hidden bg-muted">
+                {item.images.length > 0 && (
+                  <img
+                    src={item.images[0]}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
+                <div className="absolute top-4 right-4 px-3 py-1 bg-background/90 backdrop-blur-md rounded-full text-xs font-semibold text-foreground">
+                  {item.type === 'project' ? 'Project' : 'Achievement'}
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-medium text-[#0A66C2]">
+                    {item.teamName && `Team ${item.teamName}`}
+                  </span>
+                  {item.githubUrl && (
+                    <a
+                      href={item.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-[#0A66C2] transition-colors"
+                    >
+                      <Github size={18} />
+                    </a>
+                  )}
+                </div>
+                
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[#0A66C2] transition-colors">
+                  {item.name}
+                </h3>
+                
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                  {item.shortDescription}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

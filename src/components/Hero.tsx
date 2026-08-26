@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { User, Code2, Layers, Award, Mail } from 'lucide-react';
 import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.png';
 
 const profileImageDark = '/profile-dark.png';
@@ -11,260 +10,105 @@ interface HeroProps {
 }
 
 export function Hero({ isDarkMode }: HeroProps) {
-  const roles = ['UI & UX Designer', 'Web Developer'];
-  const [currentRole, setCurrentRole] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const role = roles[currentRole];
-    const typingSpeed = isDeleting ? 50 : 100;
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        // Typing
-        if (displayedText.length < role.length) {
-          setDisplayedText(role.slice(0, displayedText.length + 1));
-        } else {
-          // Pause before deleting
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        // Deleting
-        if (displayedText.length > 0) {
-          setDisplayedText(displayedText.slice(0, -1));
-        } else {
-          setIsDeleting(false);
-          setCurrentRole((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentRole]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!imageRef.current) return;
-    
-    const rect = imageRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    const x = (e.clientX - centerX) / (rect.width / 2);
-    const y = (e.clientY - centerY) / (rect.height / 2);
-    
-    setMousePosition({ x, y });
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
-  const handleMouseLeave = () => {
-    setMousePosition({ x: 0, y: 0 });
-  };
+  const navCards = [
+    { label: 'Me', id: 'about', icon: User },
+    { label: 'Projects', id: 'projects-achievements', icon: Code2 },
+    { label: 'Skills', id: 'skills', icon: Layers },
+    { label: 'Awards', id: 'achievements', icon: Award },
+    { label: 'Contact', id: 'contact', icon: Mail },
+  ];
 
   return (
-    <section id="hero" 
-      className="min-h-screen flex justify-center bg-background relative overflow-hidden w-full px-4 sm:px-6 lg:px-8"
-      style={{ 
-        alignItems: windowWidth < 1024 ? 'flex-start' : 'center',
-        paddingTop: windowWidth < 1024 ? '128px' : '80px',
-        paddingBottom: windowWidth < 1024 ? '128px' : '0'
-      }}
-    >
-      {/* Large Background Text - Only rendered on large screens and above */}
-      {windowWidth >= 1024 && (
-        <div className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <motion.div
-            className="flex whitespace-nowrap"
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{
-              duration: 35,
-              repeat: Infinity,
-              repeatType: 'loop',
-              ease: 'linear',
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 relative bg-background">
+      <div className="max-w-3xl mx-auto w-full flex flex-col items-center text-center mt-8">
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="text-xl font-medium mb-4 text-foreground">
+            Hey, I'm Thanoj <span className="inline-block animate-bounce">👋</span>
+          </h3>
+          
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
+            UI & UX Designer<br />& Web Developer
+          </h1>
+          
+          <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto">
+            Innovation at the intersection of design & code — FIT undergrad @ University of Moratuwa.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="relative w-48 h-48 md:w-56 md:h-56 mb-12 rounded-full overflow-hidden border-4 border-background shadow-xl"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <ImageWithFallback
+            src={isDarkMode ? profileImageDark : profileImageLight}
+            alt="Thanoj Buddhima"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center gap-4 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="px-8 py-3 bg-[#0A66C2] hover:bg-[#004182] text-white rounded-full font-medium transition-colors flex items-center gap-2"
+          >
+            Let's Connect ↗
+          </button>
+          
+          <button 
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/Thanoj_Buddhima_CV.pdf';
+              link.download = 'Thanoj_Buddhima_CV.pdf';
+              link.click();
             }}
+            className="px-8 py-3 bg-card hover:bg-muted text-foreground border border-border rounded-full font-medium transition-colors flex items-center gap-2"
           >
-            <span
-              className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
-              style={{
-                WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)', // Increased thickness for better visibility
-                color: 'transparent',
-                lineHeight: 0.9,
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 900,
-                letterSpacing: '-0.02em',
-                paddingRight: '6rem',
-              }}
-            >
-              THANOJ BUDDHIMA
-            </span>
-            <span
-              className="text-[40vw] md:text-[17rem] lg:text-[20rem] xl:text-[23rem]"
-              style={{
-                WebkitTextStroke: '2px rgba(255, 107, 53, 0.25)', // Synchronized thickness
-                color: 'transparent',
-                lineHeight: 0.9,
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 900,
-                letterSpacing: '-0.02em',
-                paddingRight: '6rem',
-              }}
-            >
-              THANOJ BUDDHIMA
-            </span>
-          </motion.div>
-        </div>
-      )}
+            View Resume ⬇
+          </button>
+        </motion.div>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px', width: '100%', position: 'relative', zIndex: 10 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Side - Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="order-1 lg:order-1"
-          >
-            <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', marginBottom: '4px' }}>Hi I am</p>
-            <h2 style={{ color: '#FF6B35', fontSize: '2rem', fontWeight: 'bold', marginBottom: '12px' }}>Thanoj Buddhima</h2>
-            <div className="mb-4 md:mb-6 h-[80px] sm:h-[100px] md:h-[130px] lg:h-[160px] flex items-center w-full overflow-hidden">
-              <h1 className="text-foreground text-2xl sm:text-5xl md:text-6xl lg:text-6xl flex items-center break-words max-w-full leading-tight">
-                <span className="inline-block min-w-0 break-words">{displayedText || '\u00A0'}</span>
-                <span className="inline-block w-[3px] bg-[#FF6B35] ml-2 animate-pulse flex-shrink-0" style={{ height: '0.8em' }}></span>
-              </h1>
-            </div>
-            <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', marginBottom: '24px', maxWidth: '500px', lineHeight: '1.6' }}>
-              A software developer passionate about clean architecture and efficient systems. I build digital products that are as functional as they are beautiful.
-            </p>
-            <motion.button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hidden lg:inline-flex px-8 py-3 bg-[#FF6B35] text-white rounded-full transition-all"
-              whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Hire Me
-            </motion.button>
-          </motion.div>
-
-          {/* Right Side - Profile Image & Social */}
-          <motion.div
-            className="flex flex-col items-center order-2 lg:order-2"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {/* Profile Image with 3D effect */}
-            <div className="relative mb-4 md:mb-6 w-64 h-64 md:w-80 md:h-80">
-              <motion.div 
-                ref={imageRef}
-                className="w-full h-full rounded-full overflow-hidden border-4 border-border bg-card cursor-pointer"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  perspective: '1000px',
-                }}
-                animate={imageLoaded ? {
-                  rotateY: mousePosition.x * 15,
-                  rotateX: -mousePosition.y * 15,
-                } : {}}
-                transition={{
-                  type: 'spring',
-                  stiffness: 150,
-                  damping: 15,
-                }}
-              >
-                <ImageWithFallback
-                  src={isDarkMode ? profileImageDark : profileImageLight}
-                  alt="Thanoj Buddhima"
-                  className="w-full h-full object-cover"
-                  onLoad={() => setImageLoaded(true)}
-                />
-              </motion.div>
-            </div>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-4">
-              <motion.a
-                href="mailto:thanojbuddhima2003@gmail.com"
-                className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
-                whileHover={{ scale: 1.2, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Mail size={20} />
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/in/thanojbuddhima"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
-                whileHover={{ scale: 1.2, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Linkedin size={20} />
-              </motion.a>
-              <motion.a
-                href="https://github.com/ThanojBuddhima"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
-                whileHover={{ scale: 1.2, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github size={20} />
-              </motion.a>
-              <motion.a
-                href="https://www.facebook.com/share/1D5cha3Avy/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
-                whileHover={{ scale: 1.2, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Facebook size={20} />
-              </motion.a>
-              <motion.a
-                href="https://www.instagram.com/thanoj_b_20/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-secondary rounded-full text-foreground hover:bg-[#FF6B35] hover:text-white transition-colors border border-border"
-                whileHover={{ scale: 1.2, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Instagram size={20} />
-              </motion.a>
-            </div>
-
-            {/* Mobile Hire Me Button */}
-            <div 
-              className="flex lg:hidden w-full justify-center"
-              style={{ marginTop: '32px', marginBottom: '24px' }}
-            >
-              <motion.button
-                onClick={() => {
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="px-8 py-3 bg-[#FF6B35] text-white rounded-full font-medium hover:bg-[#e55a2b] transition-colors shadow-lg shadow-[#FF6B35]/25"
-                whileHover={{ scale: 1.05, backgroundColor: '#FF8C66' }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Hire Me
-              </motion.button>
-            </div>
-          </motion.div>
-        </div>
       </div>
+      
+      {/* Bottom Nav Cards */}
+      <motion.div 
+        className="w-full max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-3 px-4 mt-auto"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        {navCards.map((item) => {
+          const Icon = item.icon;
+          return (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="flex flex-col items-center justify-center gap-2 p-4 bg-card border border-border hover:border-[#0A66C2] rounded-2xl transition-all hover:-translate-y-1 shadow-sm"
+            >
+              <Icon size={24} className="text-[#0A66C2]" />
+              <span className="text-sm font-medium text-foreground">{item.label}</span>
+            </button>
+          );
+        })}
+      </motion.div>
     </section>
   );
 }
