@@ -94,11 +94,11 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-[#FF6B35] hover:text-white transition-all border border-border"
+                    className="text-foreground hover:text-[#FF6B35] transition-all p-2"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <social.icon size={18} />
+                    <social.icon size={24} />
                   </motion.a>
                 ))}
               </div>
@@ -126,7 +126,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
                   />
                 </div>
 
@@ -139,7 +139,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your Email"
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
                   />
                 </div>
 
@@ -152,14 +152,14 @@ export function Contact() {
                     placeholder="Your Message..."
                     required
                     rows={4}
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all resize-none placeholder:text-muted-foreground/60 text-sm"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all resize-none placeholder:text-muted-foreground/60 text-sm"
                   />
                 </div>
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full py-3 bg-[#FF6B35] text-white rounded-md font-medium flex items-center justify-center gap-2 transition-all"
+                className="w-full py-3 bg-[#FF6B35] text-white rounded-none font-medium flex items-center justify-center gap-2 transition-all"
                 whileHover={{ scale: 1.05, backgroundColor: '#e55a2b' }}
                 whileTap={{ scale: 0.95 }}
               >

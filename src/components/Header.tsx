@@ -36,12 +36,12 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
         {/* Logo */}
         <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
-          <div className="bg-[#FF6B35] text-white font-bold text-2xl w-8 h-8 flex items-center justify-center rounded-sm mr-[2px]">
+          <div className="bg-[#FF6B35] text-white font-bold text-2xl w-8 h-8 flex items-center justify-center rounded-none mr-[2px]">
             T
           </div>
           <span className="font-bold text-2xl tracking-tight text-foreground">hanoj</span>
@@ -69,12 +69,7 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           
-          <button 
-            onClick={handleDownloadCV}
-            className="hidden lg:block px-6 py-2.5 bg-[#FF6B35] text-white font-medium text-sm rounded-md hover:bg-[#e55a2b] transition-colors"
-          >
-            Download CV
-          </button>
+
 
           {/* Mobile Menu Toggle */}
           <button 
@@ -105,12 +100,7 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
                   {link.label}
                 </button>
               ))}
-              <button 
-                onClick={handleDownloadCV}
-                className="w-full py-3 bg-[#FF6B35] text-white font-medium rounded-md mt-4"
-              >
-                Download CV
-              </button>
+
             </div>
           </motion.div>
         )}

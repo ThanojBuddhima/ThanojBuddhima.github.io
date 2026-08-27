@@ -65,7 +65,6 @@ export default function App() {
       >
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobileDevice} />
         <Hero isDarkMode={isDarkMode} />
-        <About />
         <Education />
         <ProjectsAndAchievements />
         <Contact />

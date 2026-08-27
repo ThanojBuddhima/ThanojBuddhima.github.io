@@ -18,97 +18,97 @@ export function Hero({ isDarkMode }: HeroProps) {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/share/1D5cha3Avy/" },
     { icon: Github, href: "https://github.com/ThanojBuddhima" },
-    { icon: Instagram, href: "https://www.instagram.com/thanoj_b_20/" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/thanojbuddhima" },
+    { icon: Mail, href: "mailto:thanojbuddhima2003@gmail.com" },
+    { icon: Facebook, href: "https://www.facebook.com/share/1D5cha3Avy/" },
+    { icon: Instagram, href: "https://www.instagram.com/thanoj_b_20/" },
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 relative bg-background">
-      <div className="max-w-3xl mx-auto w-full flex flex-col items-center text-center mt-8">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-24 pb-12 bg-background relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
-        {/* Text Content */}
+        {/* Left Side: Text Content */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-start order-2 lg:order-1"
         >
-          <h3 className="text-xl font-medium mb-4 text-foreground">
-            Hey, I'm Thanoj <span className="inline-block animate-bounce">👋</span>
+          <h3 className="text-xl font-medium mb-3 text-foreground">
+            Hey, I'm Thanoj
           </h3>
           
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-8">
             Software Engineer
           </h1>
           
-          <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto">
-            I'm a FIT undergraduate at the University of Moratuwa, passionate about creating efficient, scalable, and user-focused software solutions.
-          </p>
+          <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
+            <p>
+              I'm Thanoj Buddhima, an undergraduate at the Faculty of Information Technology, University of Moratuwa, passionate about creating efficient, scalable, and user-focused software solutions. I thrive on solving complex problems and continuously exploring new technologies to push my skills further.
+            </p>
+            <p>
+              I've also won several hackathons and competitions, gaining hands-on experience in rapid problem-solving, teamwork, and real-world product development.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Centered Profile Image (No Blobs) */}
+        {/* Right Side: Image and Actions */}
         <motion.div 
-          className="relative w-48 h-48 md:w-64 md:h-64 mb-8 rounded-full overflow-hidden"
+          className="flex flex-col items-center justify-center order-1 lg:order-2"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <ImageWithFallback
-            src={isDarkMode ? profileImageDark : profileImageLight}
-            alt="Thanoj Buddhima"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+          {/* Profile Image */}
+          <div className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden">
+            <ImageWithFallback
+              src={isDarkMode ? profileImageDark : profileImageLight}
+              alt="Thanoj Buddhima"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        {/* Social Icons (Centered below image) */}
-        <motion.div 
-          className="flex gap-4 mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          {socialLinks.map((social, idx) => {
-            const Icon = social.icon;
-            return (
-              <a
-                key={idx}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-foreground text-background hover:bg-[#FF6B35] transition-colors flex items-center justify-center shadow-sm"
-              >
-                <Icon size={20} />
-              </a>
-            );
-          })}
-        </motion.div>
+          {/* Social Icons */}
+          <div className="flex gap-4 mb-8">
+            {socialLinks.map((social, idx) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={idx}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-[#FF6B35] transition-colors flex items-center justify-center p-2"
+                >
+                  <Icon size={24} />
+                </a>
+              );
+            })}
+          </div>
 
-        {/* Action Buttons */}
-        <motion.div 
-          className="flex flex-col sm:flex-row items-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <button 
-            onClick={() => scrollToSection('contact')}
-            className="px-6 py-2.5 bg-[#FF6B35] text-white rounded-md font-medium text-sm hover:bg-[#e55a2b] transition-colors flex items-center gap-2"
-          >
-            Hire Me
-          </button>
-          
-          <button 
-            onClick={() => {
-              const link = document.createElement('a');
-              link.href = '/Thanoj_Buddhima_CV.pdf';
-              link.download = 'Thanoj_Buddhima_CV.pdf';
-              link.click();
-            }}
-            className="px-6 py-2.5 bg-[#FF6B35] text-white rounded-md font-medium text-sm hover:bg-[#e55a2b] transition-colors flex items-center gap-2"
-          >
-            Download CV
-          </button>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="px-6 py-2.5 bg-transparent border border-foreground text-foreground rounded-none font-medium text-sm hover:bg-foreground hover:text-background transition-colors flex items-center gap-2"
+            >
+              Connect
+            </button>
+            
+            <button 
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/Thanoj_Buddhima_CV.pdf';
+                link.download = 'Thanoj_Buddhima_CV.pdf';
+                link.click();
+              }}
+              className="px-6 py-2.5 bg-[#FF6B35] text-white rounded-none font-medium text-sm hover:bg-[#e55a2b] transition-colors flex items-center gap-2"
+            >
+              Download CV
+            </button>
+          </div>
         </motion.div>
 
       </div>
