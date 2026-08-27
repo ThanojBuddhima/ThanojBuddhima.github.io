@@ -67,18 +67,21 @@ export function Skills() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`px-6 py-12 flex flex-col items-center text-center group bg-background hover:bg-secondary/20 transition-colors ${getBorderClasses(index)}`}
             >
-              <span className="text-[#FF6B35] text-xs font-bold tracking-widest mb-6">
-                0{index + 1}
-              </span>
-              
-              <div className="flex items-center justify-center gap-2 mb-4 text-foreground group-hover:text-[#FF6B35] transition-colors">
+              <div className="flex items-center justify-center gap-2 mb-6 text-foreground group-hover:text-[#FF6B35] transition-colors">
                 {category.icon}
                 <h3 className="text-lg font-bold">{category.title}</h3>
               </div>
               
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-[200px]">
-                {category.skills.join(', ')}
-              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1.5 bg-secondary/20 text-muted-foreground text-sm font-medium border border-border rounded-none group-hover:border-[#FF6B35]/30 transition-colors"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
