@@ -8,23 +8,25 @@ interface ExperienceItem {
   period: string;
   location?: string;
   description?: string;
+  companyLink?: string;
 }
 
 const experienceData: ExperienceItem[] = [
+  {
+    id: 'gmora',
+    role: 'Co-Founder',
+    company: 'Gmora',
+    companyLink: 'https://gmora.dev',
+    period: 'Feb 2026 - Present',
+    location: 'Colombo, Western Province, Sri Lanka',
+    description: 'Tech Co-founder | Engineering & IT collaborative building award-winning solutions and winners in competitive hackathons.',
+  },
   {
     id: 'kevlift',
     role: 'Co-Founder',
     company: 'KEV LIFT',
     period: 'Jun 2026 - Present',
     location: 'Colombo, Western Province, Sri Lanka',
-  },
-  {
-    id: 'gmora',
-    role: 'Co-Founder',
-    company: 'Gmora',
-    period: 'Feb 2026 - Present',
-    location: 'Colombo, Western Province, Sri Lanka',
-    description: 'Tech Co-founder | Engineering & IT collaborative building award-winning solutions and winners in competitive hackathons.',
   },
   {
     id: 'math-society',
@@ -57,7 +59,7 @@ export function Experience() {
             Career Journey
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            Experience
+            <span className="text-[#FF6B35]">&gt;</span> Experience
           </h2>
         </motion.div>
 
@@ -71,7 +73,7 @@ export function Experience() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 transition-colors shadow-sm"
             >
-              <div className="shrink-0 w-12 h-12 rounded-full bg-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35]">
+              <div className="shrink-0 text-[#FF6B35] pt-0.5">
                 <BriefcaseBusiness size={24} />
               </div>
               
@@ -80,7 +82,15 @@ export function Experience() {
                   <h3 className="text-lg font-bold text-foreground">{item.role}</h3>
                   <span className="text-sm text-muted-foreground font-medium">{item.period}</span>
                 </div>
-                <h4 className="text-foreground/90 font-medium mb-1">{item.company}</h4>
+                <h4 className="text-foreground/90 font-medium mb-1">
+                  {item.companyLink ? (
+                    <a href={item.companyLink} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B35] transition-colors underline decoration-border underline-offset-4 hover:decoration-[#FF6B35]">
+                      {item.company}
+                    </a>
+                  ) : (
+                    item.company
+                  )}
+                </h4>
                 {item.location && (
                   <p className="text-muted-foreground text-xs mb-2">{item.location}</p>
                 )}

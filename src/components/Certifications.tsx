@@ -59,7 +59,7 @@ export function Certifications() {
             Licenses & Certifications
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            Certifications
+            <span className="text-[#FF6B35]">&gt;</span> Certifications
           </h2>
         </motion.div>
 
@@ -74,7 +74,7 @@ export function Certifications() {
               className="group p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col h-full"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="shrink-0 w-12 h-12 rounded-full bg-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-colors">
+                <div className="shrink-0 text-[#FF6B35] transition-colors pt-0.5">
                   <Award size={24} />
                 </div>
                 <div className="flex-1 min-w-0 pr-8 relative">

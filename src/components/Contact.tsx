@@ -32,7 +32,9 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '12px', color: 'var(--foreground)' }}>Get In Touch</h2>
+          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '12px', color: 'var(--foreground)' }}>
+            <span className="text-[#FF6B35]">&gt;</span> Get In Touch
+          </h2>
           <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
             I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message!
           </p>

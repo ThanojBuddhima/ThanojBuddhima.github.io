@@ -39,13 +39,13 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md transition-all duration-300 border-b border-border/50">
+      <div className="w-full px-6 md:px-12 h-20 flex items-center justify-between">
         
         {/* Logo */}
         <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
           <span className="font-bold text-2xl tracking-tight text-foreground">thanoj</span>
-          <span className="font-bold text-2xl tracking-tight text-[#FF6B35]">Buddhima</span>
+          <span className="font-bold text-2xl tracking-tight bg-[#FF6B35] text-background px-1">Buddhima</span>
         </div>
 
         {/* Desktop Nav */}

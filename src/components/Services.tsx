@@ -36,7 +36,9 @@ export function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-foreground text-4xl md:text-5xl mb-4">Services</h2>
+          <h2 className="text-foreground text-4xl md:text-5xl mb-4">
+            <span className="text-[#FF6B35]">&gt;</span> Services
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus 
             netus in. Aliquet donec morbi convallis pretium

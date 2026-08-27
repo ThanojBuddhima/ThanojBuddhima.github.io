@@ -65,7 +65,7 @@ export function Projects() {
             Portfolio
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
-            Featured Projects
+            <span className="text-[#FF6B35]">&gt;</span> Featured Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A selection of my recent full-stack, mobile, and desktop applications.

@@ -42,7 +42,7 @@ export function Education() {
             Academic Background
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            Education
+            <span className="text-[#FF6B35]">&gt;</span> Education
           </h2>
         </motion.div>
 
@@ -56,7 +56,7 @@ export function Education() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 transition-colors shadow-sm"
             >
-              <div className="shrink-0 w-12 h-12 rounded-full bg-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35]">
+              <div className="shrink-0 text-[#FF6B35] pt-0.5">
                 <GraduationCap size={24} />
               </div>
               

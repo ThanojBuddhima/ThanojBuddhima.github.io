@@ -59,7 +59,7 @@ export function About() {
           className="flex flex-col"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
-            About Me
+            <span className="text-[#FF6B35]">&gt;</span> About Me
           </h2>
           
           <div className="text-muted-foreground leading-relaxed mb-10 text-sm md:text-base">
