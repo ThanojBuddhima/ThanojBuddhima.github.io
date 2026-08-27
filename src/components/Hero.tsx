@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { User, Code2, Layers, Award, Mail } from 'lucide-react';
+import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
 import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.png';
 
 const profileImageDark = '/profile-dark.png';
@@ -17,18 +17,18 @@ export function Hero({ isDarkMode }: HeroProps) {
     }
   };
 
-  const navCards = [
-    { label: 'Me', id: 'about', icon: User },
-    { label: 'Projects', id: 'projects-achievements', icon: Code2 },
-    { label: 'Skills', id: 'skills', icon: Layers },
-    { label: 'Awards', id: 'achievements', icon: Award },
-    { label: 'Contact', id: 'contact', icon: Mail },
+  const socialLinks = [
+    { icon: Facebook, href: "https://www.facebook.com/share/1D5cha3Avy/" },
+    { icon: Github, href: "https://github.com/ThanojBuddhima" },
+    { icon: Instagram, href: "https://www.instagram.com/thanoj_b_20/" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/thanojbuddhima" },
   ];
 
   return (
     <section id="hero" className="min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 relative bg-background">
       <div className="max-w-3xl mx-auto w-full flex flex-col items-center text-center mt-8">
         
+        {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,16 +39,17 @@ export function Hero({ isDarkMode }: HeroProps) {
           </h3>
           
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
-            UI & UX Designer<br />& Web Developer
+            Software Engineer
           </h1>
           
           <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto">
-            Innovation at the intersection of design & code — FIT undergrad @ University of Moratuwa.
+            I'm a FIT undergraduate at the University of Moratuwa, passionate about creating efficient, scalable, and user-focused software solutions.
           </p>
         </motion.div>
 
+        {/* Centered Profile Image (No Blobs) */}
         <motion.div 
-          className="relative w-48 h-48 md:w-56 md:h-56 mb-12 rounded-full overflow-hidden border-4 border-background shadow-xl"
+          className="relative w-48 h-48 md:w-64 md:h-64 mb-8 rounded-full overflow-hidden"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -60,17 +61,41 @@ export function Hero({ isDarkMode }: HeroProps) {
           />
         </motion.div>
 
+        {/* Social Icons (Centered below image) */}
         <motion.div 
-          className="flex flex-col sm:flex-row items-center gap-4 mb-20"
+          className="flex gap-4 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {socialLinks.map((social, idx) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={idx}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-foreground text-background hover:bg-[#FF6B35] transition-colors flex items-center justify-center shadow-sm"
+              >
+                <Icon size={20} />
+              </a>
+            );
+          })}
+        </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <button 
             onClick={() => scrollToSection('contact')}
-            className="px-8 py-3 bg-[#0A66C2] hover:bg-[#004182] text-white rounded-full font-medium transition-colors flex items-center gap-2"
+            className="px-6 py-2.5 bg-[#FF6B35] text-white rounded-md font-medium text-sm hover:bg-[#e55a2b] transition-colors flex items-center gap-2"
           >
-            Let's Connect ↗
+            Hire Me
           </button>
           
           <button 
@@ -80,35 +105,13 @@ export function Hero({ isDarkMode }: HeroProps) {
               link.download = 'Thanoj_Buddhima_CV.pdf';
               link.click();
             }}
-            className="px-8 py-3 bg-card hover:bg-muted text-foreground border border-border rounded-full font-medium transition-colors flex items-center gap-2"
+            className="px-6 py-2.5 bg-[#FF6B35] text-white rounded-md font-medium text-sm hover:bg-[#e55a2b] transition-colors flex items-center gap-2"
           >
-            View Resume ⬇
+            Download CV
           </button>
         </motion.div>
 
       </div>
-      
-      {/* Bottom Nav Cards */}
-      <motion.div 
-        className="w-full max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-3 px-4 mt-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        {navCards.map((item) => {
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="flex flex-col items-center justify-center gap-2 p-4 bg-card border border-border hover:border-[#0A66C2] rounded-2xl transition-all hover:-translate-y-1 shadow-sm"
-            >
-              <Icon size={24} className="text-[#0A66C2]" />
-              <span className="text-sm font-medium text-foreground">{item.label}</span>
-            </button>
-          );
-        })}
-      </motion.div>
     </section>
   );
 }

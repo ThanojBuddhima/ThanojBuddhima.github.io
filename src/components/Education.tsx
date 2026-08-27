@@ -38,7 +38,7 @@ export function Education() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-[#0A66C2] text-xs font-bold tracking-widest uppercase mb-2 block">
+          <span className="text-[#FF6B35] text-xs font-bold tracking-widest uppercase mb-2 block">
             Academic Background
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
@@ -54,9 +54,9 @@ export function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-2xl hover:border-[#0A66C2]/50 transition-colors shadow-sm"
+              className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-2xl hover:border-[#FF6B35]/50 transition-colors shadow-sm"
             >
-              <div className="shrink-0 w-12 h-12 rounded-full bg-[#0A66C2]/10 flex items-center justify-center text-[#0A66C2]">
+              <div className="shrink-0 w-12 h-12 rounded-full bg-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35]">
                 <GraduationCap size={24} />
               </div>
               

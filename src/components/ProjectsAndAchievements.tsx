@@ -56,7 +56,7 @@ export function ProjectsAndAchievements() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-[#0A66C2] text-xs font-bold tracking-widest uppercase mb-2 block">
+          <span className="text-[#FF6B35] text-xs font-bold tracking-widest uppercase mb-2 block">
             Portfolio
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
@@ -75,7 +75,7 @@ export function ProjectsAndAchievements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group flex flex-col bg-card rounded-2xl border border-border overflow-hidden hover:border-[#0A66C2]/50 hover:shadow-lg hover:shadow-[#0A66C2]/5 transition-all duration-300"
+              className="group flex flex-col bg-card rounded-2xl border border-border overflow-hidden hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300"
             >
               {/* Image Container */}
               <div className="relative h-48 overflow-hidden bg-muted">
@@ -94,7 +94,7 @@ export function ProjectsAndAchievements() {
               {/* Content Container */}
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-medium text-[#0A66C2]">
+                  <span className="text-xs font-medium text-[#FF6B35]">
                     {item.teamName && `Team ${item.teamName}`}
                   </span>
                   {item.githubUrl && (
@@ -102,14 +102,14 @@ export function ProjectsAndAchievements() {
                       href={item.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-[#0A66C2] transition-colors"
+                      className="text-muted-foreground hover:text-[#FF6B35] transition-colors"
                     >
                       <Github size={18} />
                     </a>
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[#0A66C2] transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[#FF6B35] transition-colors">
                   {item.name}
                 </h3>
                 

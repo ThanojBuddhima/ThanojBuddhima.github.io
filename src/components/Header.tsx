@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useState } from 'react';
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -7,78 +8,113 @@ interface HeaderProps {
   isMobileDevice?: boolean;
 }
 
-export function Header({ isDarkMode, toggleDarkMode, isMobileDevice = false }: HeaderProps) {
-  const [activeSection, setActiveSection] = useState('hero');
+export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: 'Home', id: 'hero' },
+    { label: 'About', id: 'about' },
+    { label: 'Services', id: 'projects-achievements' },
+    { label: 'Projects', id: 'projects-achievements' },
+    { label: 'Testimonials', id: 'projects-achievements' },
+    { label: 'Contact Us', id: 'contact' },
+  ];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false);
   };
 
-  const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects-achievements' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Certifications', id: 'certifications' },
-    { label: 'Achievements', id: 'achievements' },
-    { label: 'Contact', id: 'contact' },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Thanoj_Buddhima_CV.pdf';
+    link.download = 'Thanoj_Buddhima_CV.pdf';
+    link.click();
+  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md transition-colors duration-300 border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        
         {/* Logo */}
-        <div 
-          className="cursor-pointer text-xl font-bold tracking-tight"
-          onClick={() => scrollToSection('hero')}
-        >
-          Thanoj<span className="text-[#0A66C2]">.</span>
+        <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
+          <div className="bg-[#FF6B35] text-white font-bold text-2xl w-8 h-8 flex items-center justify-center rounded-sm mr-[2px]">
+            T
+          </div>
+          <span className="font-bold text-2xl tracking-tight text-foreground">hanoj</span>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => (
+          {navLinks.map((link) => (
             <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`text-sm font-medium transition-colors ${
-                activeSection === item.id 
-                  ? 'text-foreground' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
+              key={link.label}
+              onClick={() => scrollToSection(link.id)}
+              className="text-sm font-medium text-foreground/80 hover:text-[#FF6B35] transition-colors"
             >
-              {item.label}
+              {link.label}
             </button>
           ))}
-          <button
-            onClick={toggleDarkMode}
-            className="ml-4 text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
-          >
-            {isDarkMode ? 'Light' : 'Dark'}
-          </button>
         </nav>
+
+        {/* Actions */}
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full hover:bg-secondary text-foreground transition-colors"
+          >
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          
+          <button 
+            onClick={handleDownloadCV}
+            className="hidden lg:block px-6 py-2.5 bg-[#FF6B35] text-white font-medium text-sm rounded-md hover:bg-[#e55a2b] transition-colors"
+          >
+            Download CV
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden p-2 text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-background border-b border-border overflow-hidden"
+          >
+            <div className="flex flex-col px-6 py-4 space-y-4">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => scrollToSection(link.id)}
+                  className="text-left text-foreground font-medium text-lg hover:text-[#FF6B35] transition-colors"
+                >
+                  {link.label}
+                </button>
+              ))}
+              <button 
+                onClick={handleDownloadCV}
+                className="w-full py-3 bg-[#FF6B35] text-white font-medium rounded-md mt-4"
+              >
+                Download CV
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
