@@ -21,13 +21,7 @@ const experienceData: ExperienceItem[] = [
     location: 'Colombo, Western Province, Sri Lanka',
     description: 'Tech Co-founder | Engineering & IT collaborative building award-winning solutions and winners in competitive hackathons.',
   },
-  {
-    id: 'kevlift',
-    role: 'Co-Founder',
-    company: 'KEV LIFT',
-    period: 'Jun 2026 - Present',
-    location: 'Colombo, Western Province, Sri Lanka',
-  },
+
   {
     id: 'math-society',
     role: 'Member',
@@ -38,8 +32,9 @@ const experienceData: ExperienceItem[] = [
     id: 'sasnaka-sansada',
     role: 'Member',
     company: 'Sasnaka Sansada',
+    companyLink: 'https://sasnaka.org/',
     period: '2022 - 2023',
-    description: 'Volunteer teacher (Ganitha Saviya) · Participated in charity programs (Katina Pinkama, Regreen Earth)',
+    description: 'Volunteer teacher (Ganitha Saviya)',
   }
 ];
 
