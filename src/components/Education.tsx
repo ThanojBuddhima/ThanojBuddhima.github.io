@@ -54,7 +54,7 @@ export function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-2xl hover:border-[#FF6B35]/50 transition-colors shadow-sm"
+              className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 transition-colors shadow-sm"
             >
               <div className="shrink-0 w-12 h-12 rounded-full bg-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35]">
                 <GraduationCap size={24} />

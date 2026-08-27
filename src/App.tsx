@@ -3,6 +3,11 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Education } from './components/Education';
+import { Experience } from './components/Experience';
+import { Skills } from './components/Skills';
+import { Projects } from './components/Projects';
+import { Certifications } from './components/Certifications';
+import { Articles } from './components/Articles';
 import { ProjectsAndAchievements } from './components/ProjectsAndAchievements';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -66,6 +71,11 @@ export default function App() {
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobileDevice} />
         <Hero isDarkMode={isDarkMode} />
         <Education />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Articles />
         <ProjectsAndAchievements />
         <Contact />
         <Footer />
@@ -79,8 +89,8 @@ export default function App() {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
               onClick={scrollToTop}
-              className={`fixed right-8 z-50 w-12 h-12 bg-[#FF6B35] text-white rounded-full flex items-center justify-center transition-colors ${isMobileDevice ? 'bottom-32' : 'bottom-8'}`}
-              whileHover={{ scale: 1.05, backgroundColor: '#e55a2b' }}
+              className={`fixed right-8 z-50 p-2 text-[#FF6B35] flex items-center justify-center transition-colors ${isMobileDevice ? 'bottom-32' : 'bottom-8'}`}
+              whileHover={{ scale: 1.1, color: '#e55a2b' }}
               whileTap={{ scale: 0.9 }}
               aria-label="Scroll to top"
             >

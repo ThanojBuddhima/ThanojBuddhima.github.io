@@ -1,0 +1,98 @@
+import { motion } from 'motion/react';
+import { BriefcaseBusiness } from 'lucide-react';
+
+interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  location?: string;
+  description?: string;
+}
+
+const experienceData: ExperienceItem[] = [
+  {
+    id: 'kevlift',
+    role: 'Co-Founder',
+    company: 'KEV LIFT',
+    period: 'Jun 2026 - Present',
+    location: 'Colombo, Western Province, Sri Lanka',
+  },
+  {
+    id: 'gmora',
+    role: 'Co-Founder',
+    company: 'Gmora',
+    period: 'Feb 2026 - Present',
+    location: 'Colombo, Western Province, Sri Lanka',
+    description: 'Tech Co-founder | Engineering & IT collaborative building award-winning solutions and winners in competitive hackathons.',
+  },
+  {
+    id: 'math-society',
+    role: 'Member',
+    company: 'Mathematics Society - University of Moratuwa',
+    period: 'Jun 2023 - Oct 2024',
+  },
+  {
+    id: 'sasnaka-sansada',
+    role: 'Member',
+    company: 'Sasnaka Sansada',
+    period: '2022 - 2023',
+    description: 'Volunteer teacher (Ganitha Saviya) · Participated in charity programs (Katina Pinkama, Regreen Earth)',
+  }
+];
+
+export function Experience() {
+  return (
+    <section id="experience" className="py-24 bg-secondary/30">
+      <div className="max-w-4xl mx-auto px-6">
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <span className="text-[#FF6B35] text-xs font-bold tracking-widest uppercase mb-2 block">
+            Career Journey
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+            Experience
+          </h2>
+        </motion.div>
+
+        <div className="space-y-4">
+          {experienceData.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex flex-col md:flex-row gap-6 p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 transition-colors shadow-sm"
+            >
+              <div className="shrink-0 w-12 h-12 rounded-full bg-[#FF6B35]/10 flex items-center justify-center text-[#FF6B35]">
+                <BriefcaseBusiness size={24} />
+              </div>
+              
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">{item.role}</h3>
+                  <span className="text-sm text-muted-foreground font-medium">{item.period}</span>
+                </div>
+                <h4 className="text-foreground/90 font-medium mb-1">{item.company}</h4>
+                {item.location && (
+                  <p className="text-muted-foreground text-xs mb-2">{item.location}</p>
+                )}
+                {item.description && (
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-2">{item.description}</p>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}

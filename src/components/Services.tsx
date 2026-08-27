@@ -50,7 +50,7 @@ export function Services() {
             return (
               <motion.div
                 key={index}
-                className="bg-card rounded-xl p-8 border border-border hover:border-[#FF6B35] transition-all group"
+                className="bg-card rounded-none p-8 border border-border hover:border-[#FF6B35] transition-all group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -63,7 +63,7 @@ export function Services() {
               >
                 {/* Icon */}
                 <motion.div
-                  className="w-16 h-16 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#FF6B35] transition-colors"
+                  className="w-16 h-16 bg-[#FF6B35]/10 rounded-none flex items-center justify-center mb-6 group-hover:bg-[#FF6B35] transition-colors"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >

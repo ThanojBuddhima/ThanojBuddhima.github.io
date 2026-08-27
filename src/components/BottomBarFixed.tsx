@@ -49,7 +49,7 @@ export function BottomBar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`flex flex-col items-center justify-center px-3 py-2 rounded-lg transition-colors focus:outline-none ${
+                className={`flex flex-col items-center justify-center px-3 py-2 rounded-none transition-colors focus:outline-none ${
                   isActive
                     ? 'text-[#FF6B35] bg-background/5 shadow-sm'
                     : 'text-foreground/70 hover:text-foreground hover:bg-background/5'

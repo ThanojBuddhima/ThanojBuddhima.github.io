@@ -13,10 +13,13 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
 
   const navLinks = [
     { label: 'Home', id: 'hero' },
-    { label: 'About', id: 'about' },
-    { label: 'Services', id: 'projects-achievements' },
-    { label: 'Projects', id: 'projects-achievements' },
-    { label: 'Testimonials', id: 'projects-achievements' },
+    { label: 'Education', id: 'education' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Certifications', id: 'certifications' },
+    { label: 'Articles', id: 'articles' },
+    { label: 'Achievements', id: 'projects-achievements' },
     { label: 'Contact Us', id: 'contact' },
   ];
 
@@ -41,10 +44,8 @@ export function Header({ isDarkMode, toggleDarkMode }: HeaderProps) {
         
         {/* Logo */}
         <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
-          <div className="bg-[#FF6B35] text-white font-bold text-2xl w-8 h-8 flex items-center justify-center rounded-none mr-[2px]">
-            T
-          </div>
-          <span className="font-bold text-2xl tracking-tight text-foreground">hanoj</span>
+          <span className="font-bold text-2xl tracking-tight text-foreground">thanoj</span>
+          <span className="font-bold text-2xl tracking-tight text-[#FF6B35]">Buddhima</span>
         </div>
 
         {/* Desktop Nav */}

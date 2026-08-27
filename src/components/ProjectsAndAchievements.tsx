@@ -60,7 +60,7 @@ export function ProjectsAndAchievements() {
             Portfolio
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
-            Projects & Achievements
+            Achievements
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A selection of hackathon wins, projects, and competitions I've participated in.
@@ -75,7 +75,7 @@ export function ProjectsAndAchievements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group flex flex-col bg-card rounded-2xl border border-border overflow-hidden hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300"
+              className="group flex flex-col bg-card rounded-none border border-border overflow-hidden hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300"
             >
               {/* Image Container */}
               <div className="relative h-48 overflow-hidden bg-muted">

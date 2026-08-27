@@ -50,8 +50,8 @@ export function Contact() {
           >
             <div className="space-y-6 mb-8">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
-                  <Phone size={20} />
+                <div className="flex items-center justify-center text-[#FF6B35]">
+                  <Phone size={24} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">Phone</p>
@@ -60,8 +60,8 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
-                  <Mail size={20} />
+                <div className="flex items-center justify-center text-[#FF6B35]">
+                  <Mail size={24} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">Email</p>
@@ -70,8 +70,8 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
-                  <MapPin size={20} />
+                <div className="flex items-center justify-center text-[#FF6B35]">
+                  <MapPin size={24} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">Location</p>
