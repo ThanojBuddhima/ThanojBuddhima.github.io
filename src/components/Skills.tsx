@@ -40,14 +40,14 @@ const getBorderClasses = (index: number) => {
 export function Skills() {
   return (
     <section id="skills" className="py-24 bg-background">
-      <div className="w-full px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 w-full">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
           <span className="text-[#FF6B35] text-xs font-bold tracking-widest uppercase mb-2 block">
             Expertise

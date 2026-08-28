@@ -52,10 +52,10 @@ const projects: Project[] = [
 export function Projects() {
   return (
     <section id="projects" className="py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 w-full">
         
         <motion.div
-          className="text-center mb-16"
+          className="text-left mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -67,7 +67,7 @@ export function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
             <span className="text-[#FF6B35]">&gt;</span> Featured Projects
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl">
             A selection of my recent full-stack, mobile, and desktop applications.
           </p>
         </motion.div>

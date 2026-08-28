@@ -11,7 +11,6 @@ import { Articles } from './components/Articles';
 import { ProjectsAndAchievements } from './components/ProjectsAndAchievements';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { MobileBottomPill } from './components/MobileBottomPill';
 import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { isMobile } from 'react-device-detect';
@@ -66,7 +65,6 @@ export default function App() {
     <>
       <div 
         className="relative w-full min-h-screen bg-background transition-colors duration-300 overflow-x-hidden"
-        style={{ paddingBottom: isMobileDevice ? '80px' : '0' }}
       >
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} isMobileDevice={isMobileDevice} />
         <Hero isDarkMode={isDarkMode} />
@@ -89,7 +87,7 @@ export default function App() {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
               onClick={scrollToTop}
-              className={`fixed right-8 z-50 p-2 text-[#FF6B35] flex items-center justify-center transition-colors ${isMobileDevice ? 'bottom-32' : 'bottom-8'}`}
+              className="fixed right-8 bottom-8 z-50 p-2 text-[#FF6B35] flex items-center justify-center transition-colors"
               whileHover={{ scale: 1.1, color: '#e55a2b' }}
               whileTap={{ scale: 0.9 }}
               aria-label="Scroll to top"
@@ -100,8 +98,6 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-      {/* Render the mobile pill completely outside the overflow-hidden wrapper so mobile Safari doesn't accidentally chop it off */}
-      {isMobileDevice && <MobileBottomPill isDarkMode={isDarkMode} />}
     </>
   );
 }

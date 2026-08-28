@@ -46,7 +46,7 @@ export function Hero({ isDarkMode }: HeroProps) {
           
           <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
             <p>
-              I'm Thanoj Buddhima, an undergraduate at the Faculty of Information Technology, University of Moratuwa, passionate about creating efficient, scalable, and user-focused software solutions. I thrive on solving complex problems and continuously exploring new technologies to push my skills further.
+              I'm Thanoj Buddhima, an undergraduate at the <span className="text-foreground font-medium">Faculty of Information Technology, University of Moratuwa</span>, passionate about creating efficient, scalable, and user-focused software solutions. I thrive on solving complex problems and continuously exploring new technologies to push my skills further.
             </p>
             <p>
               I am a team member of team <a href="https://gmora.dev" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium underline decoration-[#FF6B35] underline-offset-4 hover:text-[#FF6B35] transition-colors">Gmora</a>. I've also won several hackathons and competitions, gaining hands-on experience in rapid problem-solving, teamwork, and real-world product development.

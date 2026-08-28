@@ -22,21 +22,21 @@ const educationData: EducationItem[] = [
     institution: 'Richmond College, Galle',
     period: '2022',
     degree: 'G.C.E. Advanced Level — Physical Science',
-    details: 'Physics (A), Chemistry (A), Combined Maths (A) · Z-score 2.6247',
+    details: 'Physics (A), Chemistry (B), Combined Maths (A)',
   }
 ];
 
 export function Education() {
   return (
     <section id="education" className="py-24 bg-background">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 w-full">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
           <span className="text-[#FF6B35] text-xs font-bold tracking-widest uppercase mb-2 block">
             Academic Background
