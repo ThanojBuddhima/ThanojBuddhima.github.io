@@ -1,5 +1,5 @@
-import { useState, MouseEvent } from 'react';
 import { motion } from 'motion/react';
+import { ConstellationGrid } from './ui/ConstellationGrid';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
 import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.webp';
@@ -11,17 +11,6 @@ interface HeroProps {
 }
 
 export function Hero({ isDarkMode }: HeroProps) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -41,30 +30,9 @@ export function Hero({ isDarkMode }: HeroProps) {
     <section 
       id="hero" 
       className="min-h-screen flex items-center justify-center pt-24 pb-12 bg-background relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
     >
       {/* Interactive Dotted Grid Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div 
-          className="absolute inset-0 opacity-10 text-foreground" 
-          style={{ 
-            backgroundImage: `radial-gradient(circle at 1.5px 1.5px, currentColor 1.5px, transparent 0)`, 
-            backgroundSize: '32px 32px' 
-          }} 
-        />
-        <div 
-          className="absolute inset-0 transition-opacity duration-300"
-          style={{ 
-            backgroundImage: `radial-gradient(circle at 1.5px 1.5px, #FF6B35 2px, transparent 0)`, 
-            backgroundSize: '32px 32px',
-            WebkitMaskImage: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 100%)`,
-            maskImage: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 100%)`,
-            opacity: isHovering ? 1 : 0
-          }} 
-        />
-      </div>
+      <ConstellationGrid isDarkMode={isDarkMode} />
 
       <div className="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         
