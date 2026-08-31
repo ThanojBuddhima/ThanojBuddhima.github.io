@@ -101,7 +101,7 @@ export function Hero({ isDarkMode }: HeroProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {/* Profile Image */}
-          <div className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden ring-2 ring-[#FF6B35] ring-offset-4 ring-offset-background">
+          <div className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden">
             <ImageWithFallback
               src={isDarkMode ? profileImageDark : profileImageLight}
               alt="Thanoj Buddhima"
