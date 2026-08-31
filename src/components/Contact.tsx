@@ -150,15 +150,13 @@ export function Contact() {
                 </div>
               </div>
 
-              <motion.button
+              <button
                 type="submit"
-                className="w-full py-3 bg-[#FF6B35] text-white rounded-none font-medium flex items-center justify-center gap-2 transition-all"
-                whileHover={{ scale: 1.05, backgroundColor: '#e55a2b' }}
-                whileTap={{ scale: 0.95 }}
+                className="w-full py-3 bg-[#FF6B35] text-white rounded-none font-medium flex items-center justify-center gap-2 hover:bg-[#e55a2b] transition-colors"
               >
                 <Send size={16} />
                 Send Message
-              </motion.button>
+              </button>
             </form>
           </motion.div>
 
