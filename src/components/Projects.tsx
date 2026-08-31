@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Download } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -10,6 +10,8 @@ interface Project {
   githubUrl?: string;
   liveDemoUrl?: string;
   image?: string;
+  downloadUrl?: string;
+  downloadLabel?: string;
 }
 
 const projects: Project[] = [
@@ -20,6 +22,8 @@ const projects: Project[] = [
     techStack: ['Flutter', 'Dart', 'SQLite (sqflite)', 'FL Chart', 'Local Auth', 'Shared Preferences'],
     githubUrl: 'https://github.com/ThanojBuddhima/expenseAPK',
     image: '/projects/smart_offline_expence_manager.webp',
+    downloadUrl: 'https://github.com/ThanojBuddhima/expenseAPK/releases',
+    downloadLabel: 'Download',
   },
   {
     id: 'piyoway',
@@ -44,6 +48,8 @@ const projects: Project[] = [
     techStack: ['Swift', 'SwiftUI', 'macOS', 'Vision', 'Core ML', 'Apple Neural Engine'],
     githubUrl: 'https://github.com/ThanojBuddhima/applockPro',
     image: '/projects/applock_pro.webp',
+    downloadUrl: 'https://github.com/ThanojBuddhima/applockPro/releases',
+    downloadLabel: 'Download for macOS',
   },
   {
     id: 'garbo',
@@ -143,6 +149,17 @@ export function Projects() {
                     >
                       <ExternalLink size={18} />
                       Live
+                    </a>
+                  )}
+                  {project.downloadUrl && (
+                    <a
+                      href={project.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[#FF6B35] transition-colors"
+                    >
+                      <Download size={18} />
+                      {project.downloadLabel || 'Download'}
                     </a>
                   )}
                 </div>
