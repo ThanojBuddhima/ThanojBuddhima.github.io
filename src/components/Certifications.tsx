@@ -13,23 +13,6 @@ interface Certification {
 
 const certificationsData: Certification[] = [
   {
-    id: 'intro-dl',
-    name: 'Intro to Deep Learning',
-    issuer: 'Kaggle',
-    date: 'Apr 2026',
-    link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/intro-to-deep-learning',
-    image: '/certificates/intro_to_deep_learning.webp',
-  },
-  {
-    id: 'ai-fluency',
-    name: 'Certificate of completion: AI Fluency for educators',
-    issuer: 'Anthropic',
-    date: 'Apr 2026',
-    credentialId: 'cjzmcggamfh3',
-    link: 'https://verify.skilljar.com/c/cjzmcggamfh3',
-    image: '/certificates/ai_fluence_for_educators.webp',
-  },
-  {
     id: 'supervised-ml',
     name: 'Supervised Machine Learning: Regression and Classification',
     issuer: 'DeepLearning.AI',
@@ -45,6 +28,23 @@ const certificationsData: Certification[] = [
     date: 'Mar 2026',
     link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/pandas',
     image: '/certificates/pandas.webp',
+  },
+  {
+    id: 'intro-dl',
+    name: 'Intro to Deep Learning',
+    issuer: 'Kaggle',
+    date: 'Apr 2026',
+    link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/intro-to-deep-learning',
+    image: '/certificates/intro_to_deep_learning.webp',
+  },
+  {
+    id: 'ai-fluency',
+    name: 'Certificate of completion: AI Fluency for educators',
+    issuer: 'Anthropic',
+    date: 'Apr 2026',
+    credentialId: 'cjzmcggamfh3',
+    link: 'https://verify.skilljar.com/c/cjzmcggamfh3',
+    image: '/certificates/ai_fluence_for_educators.webp',
   }
 ];
 
