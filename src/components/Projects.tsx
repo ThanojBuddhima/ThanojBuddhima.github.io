@@ -104,16 +104,34 @@ export function Projects() {
                 <h3 className="text-2xl font-bold text-foreground group-hover:text-[#FF6B35] transition-colors leading-tight pr-4">
                   {project.name}
                 </h3>
-                <div className="flex items-center gap-3 shrink-0">
+              </div>
+              
+              <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
+                {project.shortDescription}
+              </p>
+              
+              <div className="flex flex-col gap-6 mt-auto">
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech, idx) => (
+                    <span 
+                      key={idx}
+                      className="px-3 py-1 bg-background text-foreground text-xs font-medium border border-border/50 rounded-none group-hover:border-[#FF6B35]/30 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex items-center justify-end gap-6 pt-4 border-t border-border/50">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-[#FF6B35] transition-colors"
-                      title="View Source Code"
+                      className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[#FF6B35] transition-colors"
                     >
-                      <Github size={22} />
+                      <Github size={18} />
+                      GitHub
                     </a>
                   )}
                   {project.liveDemoUrl && (
@@ -121,29 +139,14 @@ export function Projects() {
                       href={project.liveDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-[#FF6B35] transition-colors"
-                      title="View Live Demo"
+                      className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[#FF6B35] transition-colors"
                     >
-                      <ExternalLink size={22} />
+                      <ExternalLink size={18} />
+                      Live
                     </a>
                   )}
                 </div>
               </div>
-              
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
-                {project.shortDescription}
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {project.techStack.map((tech, idx) => (
-                  <span 
-                    key={idx}
-                    className="px-3 py-1 bg-background text-foreground text-xs font-medium border border-border/50 rounded-none group-hover:border-[#FF6B35]/30 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                </div>
               </div>
             </motion.div>
           ))}
