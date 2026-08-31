@@ -76,14 +76,14 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col h-full overflow-hidden"
+              className="group bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col md:flex-row h-full overflow-hidden"
             >
               {cert.image && (
-                <div className="w-full aspect-[4/3] border-b border-border/50 overflow-hidden bg-muted">
+                <div className="w-full md:w-2/5 shrink-0 border-b md:border-b-0 md:border-r border-border/50 overflow-hidden bg-muted flex">
                   <img 
                     src={cert.image} 
                     alt={cert.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-56 md:h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               )}
@@ -111,11 +111,11 @@ export function Certifications() {
                 </div>
               </div>
               
-              <div className="mt-auto pt-4 border-t border-border/50 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                <p>Issued {cert.date}</p>
-                {cert.credentialId && (
-                  <p>Credential ID {cert.credentialId}</p>
-                )}
+                <div className="mt-auto pt-4 border-t border-border/50 flex flex-col gap-1 text-sm text-muted-foreground">
+                  <p>Issued {cert.date}</p>
+                  {cert.credentialId && (
+                    <p>Credential ID {cert.credentialId}</p>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -148,6 +148,24 @@ export function Projects() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          className="mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+        >
+          <a
+            href="https://github.com/ThanojBuddhima?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 bg-transparent border border-foreground text-foreground rounded-none font-medium hover:bg-foreground hover:text-background transition-colors flex items-center gap-2"
+          >
+            See All Projects
+            <ExternalLink size={18} />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
