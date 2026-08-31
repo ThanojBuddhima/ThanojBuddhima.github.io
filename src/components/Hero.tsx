@@ -1,9 +1,9 @@
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
-import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.png';
+import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.webp';
 
-const profileImageDark = '/profile-dark.png';
+const profileImageDark = '/profile-dark.webp';
 
 interface HeroProps {
   isDarkMode: boolean;
