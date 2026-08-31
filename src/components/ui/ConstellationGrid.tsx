@@ -230,7 +230,7 @@ export function ConstellationGrid({ isDarkMode }: { isDarkMode: boolean }) {
     return (
         <canvas 
             ref={canvasRef} 
-            className="absolute inset-0 block w-full h-full pointer-events-none z-0" 
+            className="absolute inset-0 block w-full h-full pointer-events-none z-0 opacity-30" 
         />
     );
 }
