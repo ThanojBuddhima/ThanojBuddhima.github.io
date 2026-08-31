@@ -83,7 +83,7 @@ export function Certifications() {
                   <img 
                     src={cert.image} 
                     alt={cert.name} 
-                    className="w-full h-56 md:h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-56 md:h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               )}
