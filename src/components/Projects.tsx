@@ -9,6 +9,7 @@ interface Project {
   techStack: string[];
   githubUrl?: string;
   liveDemoUrl?: string;
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -18,6 +19,7 @@ const projects: Project[] = [
     shortDescription: 'A cross-platform personal finance application built with Flutter for tracking income and expenses, managing budgets, organizing accounts and categories, and visualizing spending through analytics. The app uses an offline-first approach with local data storage and supports optional PIN and biometric authentication.',
     techStack: ['Flutter', 'Dart', 'SQLite (sqflite)', 'FL Chart', 'Local Auth', 'Shared Preferences'],
     githubUrl: 'https://github.com/ThanojBuddhima/expenseAPK',
+    image: '/projects/smart_offline_expence_manager.png',
   },
   {
     id: 'piyoway',
@@ -25,6 +27,7 @@ const projects: Project[] = [
     shortDescription: 'A full-stack tourist guide platform designed to help travelers discover and explore destinations in Galle, Sri Lanka. The platform provides points of interest, local listings, user reviews, itinerary planning, and role-based administration, supported by a scalable monorepo architecture.',
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'DaisyUI', 'NestJS', 'Prisma', 'PostgreSQL', 'Docker', 'Nginx', 'Cloudinary'],
     liveDemoUrl: 'https://piyoway.com/',
+    image: '/projects/piyoway.png',
   },
   {
     id: 'plangmora',
@@ -32,6 +35,7 @@ const projects: Project[] = [
     shortDescription: 'A full-stack project management platform inspired by Jira, designed for managing projects, teams, issues, and workflows. It includes Kanban boards, Gantt-style timelines, role-based access control, JWT authentication, team collaboration, comments and mentions, notifications, analytics, and real-time data synchronization.',
     techStack: ['React', 'TypeScript', 'Vite', 'NestJS', 'PostgreSQL', 'TypeORM', 'JWT', 'Recharts'],
     githubUrl: 'https://github.com/ThanojBuddhima/ProjectManagementTool',
+    image: '/projects/plangmora.png',
   },
   {
     id: 'applock-pro',
@@ -39,6 +43,7 @@ const projects: Project[] = [
     shortDescription: 'A native macOS desktop application that protects selected apps with on-device facial recognition. AppLock Pro uses Apple\'s Neural Engine for fast Face ID authentication, freezes protected applications until verification, supports configurable authentication sessions and password fallback, and keeps biometric processing completely offline without storing or transmitting facial data.',
     techStack: ['Swift', 'SwiftUI', 'macOS', 'Vision', 'Core ML', 'Apple Neural Engine'],
     githubUrl: 'https://github.com/ThanojBuddhima/applockPro',
+    image: '/projects/applock_pro.png',
   },
   {
     id: 'garbo',
@@ -46,6 +51,7 @@ const projects: Project[] = [
     shortDescription: 'A full-stack waste management platform built as a multi-client system, consisting of a Flutter mobile application, a web-based management dashboard, and a backend API. The platform connects users and administrators through a centralized system for managing waste-management operations, with dedicated mobile and web interfaces supported by a scalable backend architecture.',
     techStack: ['Flutter', 'Dart', 'Web Dashboard', 'Backend API', 'REST API'],
     githubUrl: 'https://github.com/CodeMIndsUoM/Garbo-flutter',
+    image: '/projects/garbo.png',
   }
 ];
 
@@ -80,10 +86,21 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group flex flex-col bg-secondary/50 rounded-none border border-border overflow-hidden hover:border-[#FF6B35] hover:shadow-lg hover:shadow-[#FF6B35]/10 transition-all duration-300 p-8"
+              className="group flex flex-col bg-secondary/50 rounded-none border border-border overflow-hidden hover:border-[#FF6B35] hover:shadow-lg hover:shadow-[#FF6B35]/10 transition-all duration-300"
             >
               
-              <div className="flex items-start justify-between mb-6">
+              {project.image && (
+                <div className="w-full aspect-video overflow-hidden border-b border-border/50">
+                  <img 
+                    src={project.image} 
+                    alt={project.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-start justify-between mb-6">
                 <h3 className="text-2xl font-bold text-foreground group-hover:text-[#FF6B35] transition-colors leading-tight pr-4">
                   {project.name}
                 </h3>
@@ -126,6 +143,7 @@ export function Projects() {
                     {tech}
                   </span>
                 ))}
+                </div>
               </div>
             </motion.div>
           ))}

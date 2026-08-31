@@ -8,6 +8,7 @@ interface Certification {
   date: string;
   credentialId?: string;
   link: string;
+  image?: string;
 }
 
 const certificationsData: Certification[] = [
@@ -17,6 +18,7 @@ const certificationsData: Certification[] = [
     issuer: 'Kaggle',
     date: 'Apr 2026',
     link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/intro-to-deep-learning',
+    image: '/certificates/intro_to_deep_learning.png',
   },
   {
     id: 'ai-fluency',
@@ -25,6 +27,7 @@ const certificationsData: Certification[] = [
     date: 'Apr 2026',
     credentialId: 'cjzmcggamfh3',
     link: 'https://verify.skilljar.com/c/cjzmcggamfh3',
+    image: '/certificates/ai_fluence_for_educators.jpg',
   },
   {
     id: 'supervised-ml',
@@ -33,6 +36,7 @@ const certificationsData: Certification[] = [
     date: 'Mar 2026',
     credentialId: '4DIEAHDWUCWR',
     link: 'https://www.coursera.org/account/accomplishments/verify/4DIEAHDWUCWR',
+    image: '/certificates/supervised_learning.png',
   },
   {
     id: 'pandas',
@@ -40,6 +44,7 @@ const certificationsData: Certification[] = [
     issuer: 'Kaggle',
     date: 'Mar 2026',
     link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/pandas',
+    image: '/certificates/pandas.png',
   }
 ];
 
@@ -71,10 +76,21 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col h-full"
+              className="group bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col h-full overflow-hidden"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="shrink-0 text-[#FF6B35] transition-colors pt-0.5">
+              {cert.image && (
+                <div className="w-full aspect-[4/3] border-b border-border/50 overflow-hidden bg-muted">
+                  <img 
+                    src={cert.image} 
+                    alt={cert.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="shrink-0 text-[#FF6B35] transition-colors pt-0.5">
                   <Award size={24} />
                 </div>
                 <div className="flex-1 min-w-0 pr-8 relative">
@@ -100,6 +116,7 @@ export function Certifications() {
                 {cert.credentialId && (
                   <p>Credential ID {cert.credentialId}</p>
                 )}
+                </div>
               </div>
             </motion.div>
           ))}
