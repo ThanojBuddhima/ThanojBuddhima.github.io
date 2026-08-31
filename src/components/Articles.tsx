@@ -8,6 +8,7 @@ interface Article {
   date?: string;
   link: string;
   description?: string;
+  image?: string;
 }
 
 const articlesData: Article[] = [
@@ -17,6 +18,7 @@ const articlesData: Article[] = [
     platform: 'Medium',
     link: 'https://medium.com/@thanojbuddhima2003/human-learning-vs-machine-learning-whats-the-difference-546d141478dc',
     description: 'An exploration of the fundamental differences and similarities between how humans acquire knowledge and how machine learning algorithms are trained.',
+    image: '/articles/human_learning_vs_machine_learning.webp',
   }
 ];
 
@@ -51,8 +53,18 @@ export function Articles() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col h-full block"
+              className="group bg-card border border-border rounded-none hover:border-[#FF6B35]/50 hover:shadow-lg hover:shadow-[#FF6B35]/5 transition-all duration-300 flex flex-col h-full block overflow-hidden"
             >
+              {article.image && (
+                <div className="w-full aspect-video border-b border-border/50 overflow-hidden bg-muted">
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div className="p-6 flex flex-col flex-1">
               <div className="flex items-start gap-4 mb-4">
                 <div className="shrink-0 text-[#FF6B35] transition-colors pt-0.5">
                   <Newspaper size={24} />
@@ -74,6 +86,7 @@ export function Articles() {
                   {article.description}
                 </p>
               )}
+              </div>
             </motion.a>
           ))}
         </div>
