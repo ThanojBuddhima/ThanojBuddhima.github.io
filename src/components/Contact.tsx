@@ -5,15 +5,14 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send, Facebook, Instagram } from
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:thanojbuddhima2003@gmail.com?subject=Contact from ${formData.name}&body=From: ${formData.email}%0D%0A%0D%0A${formData.message}`;
+    const mailtoUrl = `mailto:thanojbuddhima2003@gmail.com?subject=Contact from ${formData.name}&body=${formData.message}`;
     window.location.href = mailtoUrl;
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -135,18 +134,7 @@ export function Contact() {
                   />
                 </div>
 
-                <div>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Your Email"
-                    required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF6B35] text-foreground transition-all placeholder:text-muted-foreground/60 text-sm"
-                  />
-                </div>
+
 
                 <div>
                   <textarea
