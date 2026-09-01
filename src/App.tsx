@@ -16,12 +16,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { isMobile } from 'react-device-detect';
 
 export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return true;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   
   // Robust mobile detection state. Evaluated on mount to avoid resize triggers.
