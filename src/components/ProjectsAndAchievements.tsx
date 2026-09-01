@@ -18,7 +18,7 @@ const initialItems: ProjectItem[] = [
     name: 'Champions - AI Challenge Sri Lanka',
     shortDescription: "IEEE Young Professionals Sri Lanka | Aug 2026",
     githubUrl: '',
-    images: ['/achievements/ai-challenge.webp'],
+    images: ['/achievements/aichallenge.webp'],
     type: 'achievement',
     teamName: 'Gmora',
   },
