@@ -14,6 +14,15 @@ export interface ProjectItem {
 
 const initialItems: ProjectItem[] = [
   {
+    id: 'ai-challenge-champions',
+    name: 'Champions - AI Challenge Sri Lanka',
+    shortDescription: "IEEE Young Professionals Sri Lanka | Aug 2026",
+    githubUrl: '',
+    images: ['/achievements/ai-challenge.webp'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
+  {
     id: 'innovatex-champions',
     name: 'Champions - InnovateX',
     shortDescription: "Zebra Technologies | Oct 2025",
