@@ -21,11 +21,11 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: '80px 0 40px 0', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'var(--background)' }}>
-      <div style={{ maxWidth: '1152px', margin: '0 auto', padding: '0 24px', width: '100%' }}>
-        {/* Centered Header - Matches About perfectly */}
+    <section id="contact" className="py-24 bg-background">
+      <div className="max-w-6xl mx-auto px-6 w-full">
+        {/* Centered Header */}
         <motion.div
-          style={{ marginBottom: '40px', textAlign: 'left' }}
+          className="text-left mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -34,10 +34,10 @@ export function Contact() {
           <span className="text-[#FF6B35] text-xs font-bold tracking-widest uppercase mb-2 block">
             Contact
           </span>
-          <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '12px', color: 'var(--foreground)' }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
             <span className="text-[#FF6B35]">&gt;</span> Get In Touch
           </h2>
-          <p style={{ color: 'var(--muted-foreground)', fontSize: '1rem', maxWidth: '800px', margin: '0', lineHeight: '1.6' }}>
+          <p className="text-muted-foreground max-w-2xl">
             I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message!
           </p>
         </motion.div>
