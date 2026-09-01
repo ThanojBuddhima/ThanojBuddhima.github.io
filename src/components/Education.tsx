@@ -7,6 +7,7 @@ interface EducationItem {
   degree: string;
   period: string;
   details: string;
+  href?: string;
 }
 
 const educationData: EducationItem[] = [
@@ -16,6 +17,7 @@ const educationData: EducationItem[] = [
     period: '2023 - 2027 (Expected)',
     degree: 'B.Sc. (Hons) in Information Technology',
     details: 'Faculty of Information Technology',
+    href: 'https://uom.lk/',
   },
   {
     id: 'school',
@@ -23,6 +25,7 @@ const educationData: EducationItem[] = [
     period: '2022',
     degree: 'G.C.E. Advanced Level — Physical Science',
     details: 'Physics (A), Chemistry (B), Combined Maths (A)',
+    href: 'https://www.richmondcollege.lk/',
   }
 ];
 
@@ -62,7 +65,15 @@ export function Education() {
               
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-foreground">{item.institution}</h3>
+                  <h3 className="text-lg font-bold text-foreground">
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B35] transition-colors">
+                        {item.institution}
+                      </a>
+                    ) : (
+                      item.institution
+                    )}
+                  </h3>
                   <span className="text-sm text-muted-foreground font-medium">{item.period}</span>
                 </div>
                 <h4 className="text-foreground/90 font-medium mb-1">{item.degree}</h4>
