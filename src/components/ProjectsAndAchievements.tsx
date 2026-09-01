@@ -66,15 +66,6 @@ const initialItems: ProjectItem[] = [
     images: ['/achievements/algoarena.webp'],
     type: 'achievement',
     teamName: 'Gmora',
-  },
-  {
-    id: 'biofusion',
-    name: '5th Place - BioFusion 2025',
-    shortDescription: "IEEE EMBS Student Branch, University of Sri Jayewardenepura | Jan 2026",
-    githubUrl: '',
-    images: ['/achievements/biofusion.webp'],
-    type: 'achievement',
-    teamName: 'Gmora',
   }
 ];
 
