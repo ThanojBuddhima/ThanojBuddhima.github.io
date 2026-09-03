@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Github, ExternalLink, Download } from 'lucide-react';
+import { Github, ExternalLink, Download, Copy, Check } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -12,6 +12,7 @@ interface Project {
   image?: string;
   downloadUrl?: string;
   downloadLabel?: string;
+  installCommand?: string;
 }
 
 const projects: Project[] = [
@@ -66,10 +67,19 @@ const projects: Project[] = [
     techStack: ['Bash', 'macOS', 'CLI', 'Shell Scripting'],
     githubUrl: 'https://github.com/ThanojBuddhima/mac-cleaner',
     image: '/projects/mac-cleaner.avif',
+    installCommand: 'curl -sL https://raw.githubusercontent.com/ThanojBuddhima/mac-cleaner/main/install.sh | bash',
   }
 ];
 
 export function Projects() {
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const handleCopy = (id: string, text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
   return (
     <section id="projects" className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6 w-full">
@@ -169,6 +179,24 @@ export function Projects() {
                       <Download size={18} />
                       {project.downloadLabel || 'Download'}
                     </a>
+                  )}
+                  {project.installCommand && (
+                    <button
+                      onClick={() => handleCopy(project.id, project.installCommand!)}
+                      className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-[#FF6B35] transition-colors cursor-pointer"
+                    >
+                      {copiedId === project.id ? (
+                        <>
+                          <Check size={18} className="text-green-500" />
+                          <span className="text-green-500">Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={18} />
+                          Install
+                        </>
+                      )}
+                    </button>
                   )}
                 </div>
               </div>
