@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.webp';
+import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.avif';
 
-const profileImageDark = '/profile-dark.webp';
+const profileImageDark = '/profile-dark.avif';
 
 export function About() {
   const isDarkMode = typeof window !== 'undefined' ? document.documentElement.classList.contains('dark') : false;

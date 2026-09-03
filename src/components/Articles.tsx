@@ -18,7 +18,7 @@ const articlesData: Article[] = [
     platform: 'Medium',
     link: 'https://medium.com/@thanojbuddhima2003/human-learning-vs-machine-learning-whats-the-difference-546d141478dc',
     description: 'An exploration of the fundamental differences and similarities between how humans acquire knowledge and how machine learning algorithms are trained.',
-    image: '/articles/human_learning_vs_machine_learning.webp',
+    image: '/articles/human_learning_vs_machine_learning.avif',
   }
 ];
 

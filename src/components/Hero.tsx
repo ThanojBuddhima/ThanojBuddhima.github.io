@@ -2,9 +2,9 @@ import { motion } from 'motion/react';
 import { ConstellationGrid } from './ui/ConstellationGrid';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Mail, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
-import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.webp';
+import profileImageLight from 'figma:asset/557d0c31e4caec9ddb601385d11b3d8387342704.avif';
 
-const profileImageDark = '/profile-dark.webp';
+const profileImageDark = '/profile-dark.avif';
 
 interface HeroProps {
   isDarkMode: boolean;

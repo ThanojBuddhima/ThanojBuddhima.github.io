@@ -19,7 +19,7 @@ const certificationsData: Certification[] = [
     date: 'Mar 2026',
     credentialId: '4DIEAHDWUCWR',
     link: 'https://www.coursera.org/account/accomplishments/verify/4DIEAHDWUCWR',
-    image: '/certificates/supervised_learning.webp',
+    image: '/certificates/supervised_learning.avif',
   },
   {
     id: 'pandas',
@@ -27,7 +27,7 @@ const certificationsData: Certification[] = [
     issuer: 'Kaggle',
     date: 'Mar 2026',
     link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/pandas',
-    image: '/certificates/pandas.webp',
+    image: '/certificates/pandas.avif',
   },
   {
     id: 'intro-dl',
@@ -35,7 +35,7 @@ const certificationsData: Certification[] = [
     issuer: 'Kaggle',
     date: 'Apr 2026',
     link: 'https://www.kaggle.com/learn/certification/thanojbuddhima/intro-to-deep-learning',
-    image: '/certificates/intro_to_deep_learning.webp',
+    image: '/certificates/intro_to_deep_learning.avif',
   },
   {
     id: 'ai-fluency',
@@ -44,7 +44,7 @@ const certificationsData: Certification[] = [
     date: 'Apr 2026',
     credentialId: 'cjzmcggamfh3',
     link: 'https://verify.skilljar.com/c/cjzmcggamfh3',
-    image: '/certificates/ai_fluence_for_educators.webp',
+    image: '/certificates/ai_fluence_for_educators.avif',
   }
 ];
 
