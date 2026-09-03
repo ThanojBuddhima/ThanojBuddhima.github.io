@@ -62,7 +62,7 @@ const projects: Project[] = [
   {
     id: 'mac-cleaner',
     name: 'Mac Cleaner',
-    shortDescription: 'A safe, conservative macOS cleanup utility built entirely in Bash. It features an interactive CLI menu, dry-run mode, and granular control over cleaning User and System Caches, Xcode DerivedData, Time Machine Snapshots, and more.',
+    shortDescription: 'A safe, conservative macOS cleanup utility built entirely in Bash. Instead of memorizing and running numerous complex terminal commands, you can simply run `mac-cleaner` to launch an interactive CLI menu. It features a dry-run mode and provides granular control over cleaning User and System Caches, Xcode DerivedData, Time Machine Snapshots, Docker assets, and old iOS backups.',
     techStack: ['Bash', 'macOS', 'CLI', 'Shell Scripting'],
     githubUrl: 'https://github.com/ThanojBuddhima/mac-cleaner',
     image: '/projects/mac-cleaner.avif',
