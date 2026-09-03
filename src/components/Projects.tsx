@@ -58,6 +58,14 @@ const projects: Project[] = [
     techStack: ['Flutter', 'Dart', 'Web Dashboard', 'Backend API', 'REST API'],
     githubUrl: 'https://github.com/CodeMIndsUoM/Garbo-flutter',
     image: '/projects/garbo.avif',
+  },
+  {
+    id: 'mac-cleaner',
+    name: 'Mac Cleaner',
+    shortDescription: 'A safe, conservative macOS cleanup utility built entirely in Bash. It features an interactive CLI menu, dry-run mode, and granular control over cleaning User and System Caches, Xcode DerivedData, Time Machine Snapshots, and more.',
+    techStack: ['Bash', 'macOS', 'CLI', 'Shell Scripting'],
+    githubUrl: 'https://github.com/ThanojBuddhima/mac-cleaner',
+    image: '/projects/mac-cleaner.avif',
   }
 ];
 
