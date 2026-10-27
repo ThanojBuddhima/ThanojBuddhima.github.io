@@ -66,7 +66,34 @@ const initialItems: ProjectItem[] = [
     images: ['/achievements/algoarena.avif'],
     type: 'achievement',
     teamName: 'Gmora',
-  }
+  },
+  {
+    id: 'codesplash-runners-up',
+    name: '2nd Runner-up - CodeSplash',
+    shortDescription: "Computer Science Students' Association, University of Kelaniya",
+    githubUrl: '',
+    images: ['/achievements/codesplash.avif'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
+  {
+    id: 'cre8x-runners-up',
+    name: '1st Runner-up - Cre8X',
+    shortDescription: "BCS Student Chapter, Kotelawala Defence University",
+    githubUrl: '',
+    images: ['/achievements/cre8x.avif'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
+  {
+    id: 'ignitx-runners-up',
+    name: '2nd Runner-up - IgnitX by HUTCH',
+    shortDescription: "HUTCH Sri Lanka",
+    githubUrl: '',
+    images: ['/achievements/ignitx.avif'],
+    type: 'achievement',
+    teamName: 'Gmora',
+  },
 ];
 
 export function ProjectsAndAchievements() {
