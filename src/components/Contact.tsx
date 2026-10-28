@@ -59,7 +59,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">Phone</p>
-                  <p className="text-foreground font-medium">+94 772434353</p>
+                  <p className="text-foreground font-medium">+94772434352</p>
                 </div>
               </div>
 
